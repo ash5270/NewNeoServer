@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="PacketProcess">
+      <UniqueIdentifier>{f5efaef3-4e2b-4398-8f57-46ad460a24a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{2135c318-0f41-40d1-a50b-1f119c02da53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network\IOCP">
+      <UniqueIdentifier>{931e1fc5-f490-4a94-8c4e-b0bdc3fb28c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network\HTTP">
+      <UniqueIdentifier>{bbe72b15-1503-4db8-a39d-f74ce86c60f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{733ef496-c14a-462f-b007-e3a8b8c78d8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\LOG">
+      <UniqueIdentifier>{b675a1f8-a852-4fd5-83d5-85e73ec8acb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\STEAM">
+      <UniqueIdentifier>{d1112850-a1f1-4427-970a-5d85428af0e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network\Util">
+      <UniqueIdentifier>{515dd53f-c701-4278-9644-0274d6f247ad}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Network\SocketCommon.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\IOCPSocket.h">
+      <Filter>Network\IOCP</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\IOCPServer.h">
+      <Filter>Network\IOCP</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\HttpClient.h">
+      <Filter>Network\HTTP</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\HttpData.h">
+      <Filter>Network\HTTP</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\HttpStateCode.h">
+      <Filter>Network\HTTP</Filter>
+    </ClInclude>
+    <ClInclude Include="system\LogSystem.h">
+      <Filter>System\LOG</Filter>
+    </ClInclude>
+    <ClInclude Include="system\LogData.h">
+      <Filter>System\LOG</Filter>
+    </ClInclude>
+    <ClInclude Include="system\NeoLog.h">
+      <Filter>System\LOG</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\IOCPSession.h">
+      <Filter>Network\IOCP</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\IOCPData.h">
+      <Filter>Network\IOCP</Filter>
+    </ClInclude>
+    <ClInclude Include="network\SocketAddress.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\TCPSocket.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="system\InputMemoryStream.h">
+      <Filter>System\STEAM</Filter>
+    </ClInclude>
+    <ClInclude Include="system\OutputMemoryStream.h">
+      <Filter>System\STEAM</Filter>
+    </ClInclude>
+    <ClInclude Include="system\MemoryStream.h">
+      <Filter>System\STEAM</Filter>
+    </ClInclude>
+    <ClInclude Include="system\ByteSwaper.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="system\Buffer.h">
+      <Filter>System\STEAM</Filter>
+    </ClInclude>
+    <ClInclude Include="system\MemoryPool.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="network\IOCPClient.h">
+      <Filter>Network\IOCP</Filter>
+    </ClInclude>
+    <ClInclude Include="system\Span.h">
+      <Filter>System\STEAM</Filter>
+    </ClInclude>
+    <ClInclude Include="packetprocess\PacketProcess.h">
+      <Filter>PacketProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="packetprocess\Packet.h">
+      <Filter>PacketProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="network\Terminal.h">
+      <Filter>Network\IOCP</Filter>
+    </ClInclude>
+    <ClInclude Include="network\TerminalClient.h">
+      <Filter>Network\IOCP</Filter>
+    </ClInclude>
+    <ClInclude Include="system\RingBuffer.h">
+      <Filter>System\STEAM</Filter>
+    </ClInclude>
+    <ClInclude Include="network\SessionManager.h">
+      <Filter>Network\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="packetprocess\LogicProcess.h">
+      <Filter>PacketProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="system\Time.h">
+      <Filter>System</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Network\IOCPServer.cpp">
+      <Filter>Network\IOCP</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\IOCPSocket.cpp">
+      <Filter>Network\IOCP</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\HttpClient.cpp">
+      <Filter>Network\HTTP</Filter>
+    </ClCompile>
+    <ClCompile Include="system\LogSystem.cpp">
+      <Filter>System\LOG</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\IOCPSession.cpp">
+      <Filter>Network\IOCP</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\IOCPData.cpp">
+      <Filter>Network\IOCP</Filter>
+    </ClCompile>
+    <ClCompile Include="network\TCPSocket.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="system\InputMemoryStream.cpp">
+      <Filter>System\STEAM</Filter>
+    </ClCompile>
+    <ClCompile Include="system\OutputMemoryStream.cpp">
+      <Filter>System\STEAM</Filter>
+    </ClCompile>
+    <ClCompile Include="system\MemoryPool.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="network\IOCPClient.cpp">
+      <Filter>Network\IOCP</Filter>
+    </ClCompile>
+    <ClCompile Include="packetprocess\PacketProcess.cpp">
+      <Filter>PacketProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="packetprocess\Packet.cpp">
+      <Filter>PacketProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="network\Terminal.cpp">
+      <Filter>Network\IOCP</Filter>
+    </ClCompile>
+    <ClCompile Include="packetprocess\LogicProcess.cpp">
+      <Filter>PacketProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="system\Time.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

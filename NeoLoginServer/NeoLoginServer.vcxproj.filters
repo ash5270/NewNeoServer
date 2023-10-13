@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="PacketProcess">
+      <UniqueIdentifier>{1c876d8b-51bb-4f87-8440-58e4b82c5f01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LoginServer">
+      <UniqueIdentifier>{8d941a23-81a7-474b-8e55-0cb4768587ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Packet">
+      <UniqueIdentifier>{14011f37-c2f8-4cab-9b3e-38690572f9a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LoginServer\ServerToServer">
+      <UniqueIdentifier>{24027d07-3110-4f93-8915-4deeb1435534}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="LoginServer\LoginServer.cpp">
+      <Filter>LoginServer</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginServer\LoginSession.cpp">
+      <Filter>LoginServer</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="PacketProcess\LoginProcess.cpp">
+      <Filter>PacketProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="PacketProcess\PacketAnalyze.cpp">
+      <Filter>PacketProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginServer\S2SSession.cpp">
+      <Filter>LoginServer\ServerToServer</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginServer\S2SManager.cpp">
+      <Filter>LoginServer\ServerToServer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LoginServer\LoginServer.h">
+      <Filter>LoginServer</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginServer\LoginSession.h">
+      <Filter>LoginServer</Filter>
+    </ClInclude>
+    <ClInclude Include="Packet\Packet.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="Packet\PacketData.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="Packet\PacketID.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketProcess\LoginProcess.h">
+      <Filter>PacketProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketProcess\PacketAnalyze.h">
+      <Filter>PacketProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginServer\S2SClient.h">
+      <Filter>LoginServer\ServerToServer</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginServer\S2SSession.h">
+      <Filter>LoginServer\ServerToServer</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginServer\S2SManager.h">
+      <Filter>LoginServer\ServerToServer</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

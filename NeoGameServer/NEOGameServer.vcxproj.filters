@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Gameserver\GameServer.cpp">
+      <Filter>GameServer</Filter>
+    </ClCompile>
+    <ClCompile Include="Gameserver\GameSession.cpp">
+      <Filter>GameServer</Filter>
+    </ClCompile>
+    <ClCompile Include="Process\GamePacketAnalyze.cpp">
+      <Filter>Process</Filter>
+    </ClCompile>
+    <ClCompile Include="Gameserver\S2SManager.cpp">
+      <Filter>GameServer\ServerToServer</Filter>
+    </ClCompile>
+    <ClCompile Include="Gameserver\S2SSession.cpp">
+      <Filter>GameServer\ServerToServer</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\PlayersManager.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\PlayerObject.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\WorldManager.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\MapObject.cpp">
+      <Filter>GameObject\MAP</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="GameServer">
+      <UniqueIdentifier>{d4fc5c90-2a8f-474d-823a-5dc85599a922}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Packet">
+      <UniqueIdentifier>{19724bb8-f83c-4b58-a878-51012e7c46eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Process">
+      <UniqueIdentifier>{7e927164-c8d4-49a5-b463-6014399fd854}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameServer\ServerToServer">
+      <UniqueIdentifier>{5eca3a87-8acd-4e68-9fb8-182d80554de6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject">
+      <UniqueIdentifier>{e52976ed-52ef-47e0-a04a-d6bde3ff3752}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\MAP">
+      <UniqueIdentifier>{861a010c-ad10-4c11-8c38-e3752b56e9aa}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Gameserver\GameServer.h">
+      <Filter>GameServer</Filter>
+    </ClInclude>
+    <ClInclude Include="Gameserver\GameSession.h">
+      <Filter>GameServer</Filter>
+    </ClInclude>
+    <ClInclude Include="Packet\Packet.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="Packet\PacketID.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="Process\GamePacketAnalyze.h">
+      <Filter>Process</Filter>
+    </ClInclude>
+    <ClInclude Include="Packet\PacketData.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="Gameserver\WorldByProcess.h">
+      <Filter>GameServer</Filter>
+    </ClInclude>
+    <ClInclude Include="Gameserver\S2SClient.h">
+      <Filter>GameServer\ServerToServer</Filter>
+    </ClInclude>
+    <ClInclude Include="Gameserver\S2SManager.h">
+      <Filter>GameServer\ServerToServer</Filter>
+    </ClInclude>
+    <ClInclude Include="Gameserver\S2SSession.h">
+      <Filter>GameServer\ServerToServer</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\PlayersManager.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\PlayerObject.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\WorldManager.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\MapObject.h">
+      <Filter>GameObject\MAP</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Portal.h">
+      <Filter>GameObject\MAP</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,18 @@
+{
+  "MapName": "Town",
+  "MapType": 2,
+  "MapX": 144.6,
+  "MapY": 95.4,
+  "portals": [
+    {
+      "EnterMap": 2,
+      "ExitMap": 1,
+      "SpawnPoint": [ 0.36, -15.7300005, 0.0 ]
+    },
+    {
+      "EnterMap": 2,
+      "ExitMap": 0,
+      "SpawnPoint": [ -25.82, -0.350000024, 0.0 ]
+    }
+  ]
+}

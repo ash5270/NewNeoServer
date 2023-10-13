@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Packet">
+      <UniqueIdentifier>{c3148249-7dff-4cfc-8c23-7e44f0a48473}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Process">
+      <UniqueIdentifier>{9adc83a6-a00d-44ed-bc44-34a67ed27ed9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DB">
+      <UniqueIdentifier>{385295c0-0faf-482b-aa93-5a7f971fcacf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DBServer">
+      <UniqueIdentifier>{c239313a-bfa3-4f4c-80d6-84025c97765c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="DBServer\DBServer.cpp">
+      <Filter>DBServer</Filter>
+    </ClCompile>
+    <ClCompile Include="DBServer\DBSession.cpp">
+      <Filter>DBServer</Filter>
+    </ClCompile>
+    <ClCompile Include="DB\MYSQLConnectionPool.cpp">
+      <Filter>DB</Filter>
+    </ClCompile>
+    <ClCompile Include="DB\MYSqlConnection.cpp">
+      <Filter>DB</Filter>
+    </ClCompile>
+    <ClCompile Include="Process\DBPacketProcess.cpp">
+      <Filter>Process</Filter>
+    </ClCompile>
+    <ClCompile Include="Process\DBPacketAnalyze.cpp">
+      <Filter>Process</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DBServer\DBServer.h">
+      <Filter>DBServer</Filter>
+    </ClInclude>
+    <ClInclude Include="DBServer\DBSession.h">
+      <Filter>DBServer</Filter>
+    </ClInclude>
+    <ClInclude Include="Packet\PacketData.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="Packet\PacketID.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="Packet\Packet.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="DB\MYSQLConnectionPool.h">
+      <Filter>DB</Filter>
+    </ClInclude>
+    <ClInclude Include="DB\ConnectionPool.h">
+      <Filter>DB</Filter>
+    </ClInclude>
+    <ClInclude Include="DB\IConnection.h">
+      <Filter>DB</Filter>
+    </ClInclude>
+    <ClInclude Include="DB\MYSqlConnection.h">
+      <Filter>DB</Filter>
+    </ClInclude>
+    <ClInclude Include="Process\DBPacketProcess.h">
+      <Filter>Process</Filter>
+    </ClInclude>
+    <ClInclude Include="Process\DBPacketAnalyze.h">
+      <Filter>Process</Filter>
+    </ClInclude>
+    <ClInclude Include="DB\DBConfig.h">
+      <Filter>DB</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
