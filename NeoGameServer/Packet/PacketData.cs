@@ -470,7 +470,7 @@ public override Int32 GetSize(){
 	}
 };
 
-public class P_C_NOTIFY_LEAVE_MAP
+public class P_C_REQ_LEAVE_MAP
  : Packet{
 	public override PacketID GetID(){
 		return PacketID.PI_C_REQ_LEAVE_MAP;
@@ -506,70 +506,27 @@ public override Int32 GetSize(){
 	}
 };
 
-public class P_C_REQ_ENTER_MAP 
- : Packet{
-	public override PacketID GetID(){
-		return PacketID.PI_C_REQ_ENTER_MAP;
-	}
-	
-public override Int32 GetSize(){
-		Int32 size = 0;
-		size += sizeof(Int32) + sizeof(Int32) + sizeof(Int32) + uuid.Length ;
-		return size;
-	}
-	public Int32 leaveMapId;
-	public Int32 enterMapId;
-	public Int32 characterId;
-	public byte[] uuid =new byte[16];
-	
-
-	public override void Serialize(OutputMemoryStream buffer){
-		HeaderSerialize(buffer);
-		buffer.Write(leaveMapId);
-		buffer.Write(enterMapId);
-		buffer.Write(characterId);
-		buffer.Write(uuid, uuid.Length);
-
-	}
-
-	public override void Deserialize(InputMemoryStream buffer){
-		Int32 size=0;
-		buffer.Read(out leaveMapId);
-		buffer.Read(out enterMapId);
-		buffer.Read(out characterId);
-		buffer.Read(ref uuid, uuid.Length);
-
-	}
-};
-
 public class P_S_RES_ENTER_MAP
  : Packet{
 	public override PacketID GetID(){
-		return PacketID.PI_C_RES_ENTER_MAP;
+		return PacketID.PI_S_RES_ENTER_MAP;
 	}
 	
 public override Int32 GetSize(){
 		Int32 size = 0;
-		size+=sizeof(Int32);
-		for(int i=0; i<playerDatas.Count; i++){
-			size+= playerDatas[i].GetSize();
-		}
-		size += sizeof(float) + sizeof(float) ;
+		size += sizeof(float) + sizeof(float) + sizeof(Int32) ;
 		return size;
 	}
 	public float posX;
 	public float posY;
-	public List<PlayerData> playerDatas = new List<PlayerData>();
+	public Int32 enterMapId;
 	
 
 	public override void Serialize(OutputMemoryStream buffer){
 		HeaderSerialize(buffer);
 		buffer.Write(posX);
 		buffer.Write(posY);
-		buffer.Write((int)(playerDatas.Count));
-		for(int i=0; i<playerDatas.Count; i++){
-			playerDatas[i].Serialize(buffer);
-		}
+		buffer.Write(enterMapId);
 
 	}
 
@@ -577,13 +534,7 @@ public override Int32 GetSize(){
 		Int32 size=0;
 		buffer.Read(out posX);
 		buffer.Read(out posY);
-		size = 0;
-		buffer.Read(out size);
-		for(int i=0; i<size; i++){
-			PlayerData data = new PlayerData();
-			data.Deserialize(buffer);
-			playerDatas.Add(data);
-		}
+		buffer.Read(out enterMapId);
 
 	}
 };

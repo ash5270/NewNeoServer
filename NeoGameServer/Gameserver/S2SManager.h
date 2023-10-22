@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include <optional>
 #include <Singleton.h>
 #include <string>
 #include <unordered_map>

@@ -129,24 +129,24 @@ namespace neo::system
 			}
 		}
 
-		void Write(const nlohmann::json value)
-		{
-			//Json::StreamWriterBuilder builder;
-			//Json::FastWriter writer;B
-			//std::string jsonStr = Json::writeString(builder, json);
-			std::string jsonStr = value.dump();
-			int32_t size = static_cast<int32_t>(jsonStr.size());
-			Write(size);
-			if (std::endian::native == std::endian::little)
-			{
-				std::reverse(jsonStr.begin(), jsonStr.end());
-				Write(jsonStr.c_str(), jsonStr.length());
-			}
-			else if (std::endian::native == std::endian::big)
-			{
-				Write(jsonStr.c_str(), jsonStr.length());
-			}
-		}
+		//void Write(const nlohmann::json value)
+		//{
+		//	//Json::StreamWriterBuilder builder;
+		//	//Json::FastWriter writer;B
+		//	//std::string jsonStr = Json::writeString(builder, json);
+		//	std::string jsonStr = value.dump();
+		//	int32_t size = static_cast<int32_t>(jsonStr.size());
+		//	Write(size);
+		//	if (std::endian::native == std::endian::little)
+		//	{
+		//		std::reverse(jsonStr.begin(), jsonStr.end());
+		//		Write(jsonStr.c_str(), jsonStr.length());
+		//	}
+		//	else if (std::endian::native == std::endian::big)
+		//	{
+		//		Write(jsonStr.c_str(), jsonStr.length());
+		//	}
+		//}
 	};
 }
 

@@ -250,7 +250,7 @@ void neo::process::LoginProcess::GameServerInfoReqProcess(std::shared_ptr<networ
 	NEW_PACKAGE(packet, P_C_REQ_GAME_SERVER_INFO, LoginSession);
 	//
 	P_S_RES_GAME_SERVER_INFO respone;
-	respone.ip = L"192.168.123.108";
+	respone.ip = L"192.168.123.106";
 	respone.port = 12239;
 	requestSession->SendPacket(respone);
 }

@@ -11,7 +11,6 @@
 
 namespace neo::network
 {
-
 	template<class _TSession>
 	class IOCPServer : public IOCPSocket
 	{

@@ -1,7 +1,7 @@
 {
     "tasks": [
         {
-            "type": "cppbuild",
+            "type": "shell",
             "label": "C/C++: cl.exe 활성 파일 빌드",
             "command": "cl.exe",
             "args": [

@@ -246,3 +246,4 @@ void neo::process::DBPacketProcess::WorldMapReqProcess(std::shared_ptr<network::
 	mysql_free_result(res);
 	db::MYSQLConnectionPool::GetInstance().FreeConnection(std::move(mysql));
 }
+

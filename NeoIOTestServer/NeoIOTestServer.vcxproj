@@ -128,7 +128,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Program Files\MySQL\MySQL Connector C++ 1.1.13\lib\opt;C:\Program Files\MySQL\MySQL Server 8.0\lib;$(SolutionDir)$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>mysqlcppconn.lib;libmysql.lib;NeoNetwork.lib;NeoUtil.lib;jsoncpp.lib;redis++.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>mysqlcppconn.lib;libmysql.lib;NeoNetwork.lib;NeoUtil.lib;redis++.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

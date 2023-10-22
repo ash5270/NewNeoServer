@@ -172,7 +172,7 @@ namespace neo::system
 			}
 		}
 
-		void Read(nlohmann::json& json)
+		/*void Read(nlohmann::json& json)
 		{
 			int32_t size = 0;
 			Read(size);
@@ -190,7 +190,7 @@ namespace neo::system
 			}
 			json = nlohmann::json::parse(str);
 				
-		}
+		}*/
 		
 	};
 }

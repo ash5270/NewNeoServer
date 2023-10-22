@@ -90,20 +90,32 @@ void neo::object::WorldManager::CreateWorldMap(std::shared_ptr<network::IOCPSess
 void neo::object::WorldManager::EnterTheMap(std::shared_ptr<network::IOCPSession> session,
 	std::unique_ptr<process::IPacket> packet)
 {
-	NEW_PACKAGE(packet, P_C_REQ_ENTER_MAP, GameSession);
-	mMapObjects[requestPacket->enterMapId]->AddPlayer(mPlayerDatas[requestPacket->characterId]);
-	mPlayerDatas[requestPacket->characterId]->GetPlayerData().mapId = requestPacket->enterMapId;
+	//NEW_PACKAGE(packet, P_C_REQ_ENTER_MAP, GameSession);
+	//mMapObjects[requestPacket->enterMapId]->AddPlayer(mPlayerDatas[requestPacket->characterId]);
+	//mPlayerDatas[requestPacket->characterId]->GetPlayerData().mapId = requestPacket->enterMapId;
+	LOG_PRINT(LOG_LEVEL::LOG_DEBUG, L"error packet \n");
 }
 
 
 void neo::object::WorldManager::LeaveTheMap(std::shared_ptr<network::IOCPSession> session,
 	std::unique_ptr<process::IPacket> packet)
 {
-	NEW_S2S_PACKAGE(packet, P_C_NOTIFY_LEAVE_MAP, S2SSession);
+	NEW_S2S_PACKAGE(packet, P_C_REQ_LEAVE_MAP, S2SSession);
 	mMapObjects[requestPacket->leaveMapId]->RemovePlayer(mPlayerDatas[requestPacket->characterId]);
 	auto spawnPoint= mMapObjects[requestPacket->enterMapId]->GetSpawnPoint(requestPacket->leaveMapId);
+
+	LOG_PRINT(LOG_LEVEL::LOG_DEBUG, L"leave characeter id : %d, spwan point : {%f,%f}\n",requestPacket->characterId,
+		spawnPoint.x,spawnPoint.y);
 	math::Vector2 vec2(spawnPoint.x, spawnPoint.y);
 	mPlayerDatas[requestPacket->characterId]->SetPosition(vec2);
+
+	packet::game::P_S_RES_ENTER_MAP enterPacket;
+	enterPacket.posX = spawnPoint.x;
+	enterPacket.posY = spawnPoint.y;
+	enterPacket.enterMapId = requestPacket->enterMapId;
+	requestSession->SendPacket(enterPacket);
+
+	mMapObjects[requestPacket->enterMapId]->AddPlayer(mPlayerDatas[requestPacket->characterId]);
 }
 
 std::optional<std::shared_ptr<neo::object::PlayerObject>> neo::object::WorldManager::GetPlayerData(const int& id)
@@ -121,7 +133,7 @@ void neo::object::WorldManager::RemovePlayer(const int& id)
 
 void neo::object::WorldManager::Start()
 {
-	auto fileNames = GetFilesInDir(L"F:\\Code\\NeoServer\\NeoGameServer\\LoadData\\MapData\\", L"*.json");
+	auto fileNames = GetFilesInDir(L"F:\\Code\\NewNeoServer\\NeoGameServer\\LoadData\\MapData\\", L"*.json");
 	if(fileNames)
 	{
 		//TODO : 수정해야할 곳 +5 
@@ -131,7 +143,7 @@ void neo::object::WorldManager::Start()
 		{
 			//TODO : Json 읽어오기
 			//폴더 내 에서 모든 데이터를 읽어와야함
-			std::ifstream stream(L"F:\\Code\\NeoServer\\NeoGameServer\\LoadData\\MapData\\"+vec[i]);
+			std::ifstream stream(L"F:\\Code\\NewNeoServer\\NeoGameServer\\LoadData\\MapData\\"+vec[i]);
 			nlohmann::json mapJson = nlohmann::json::parse(stream);
 			int mapType = mapJson["MapType"];
 			mMapObjects[mapType] = std::make_shared<MapObject>(mGameObjectManager, mapJson);

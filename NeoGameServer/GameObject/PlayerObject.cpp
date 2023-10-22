@@ -25,6 +25,8 @@ void neo::object::PlayerObject::SetPlayerData(const packet::game::PlayerData& da
 
 neo::packet::game::PlayerData& neo::object::PlayerObject::GetPlayerData()
 {
+	mPlayerData.posX = transform.position.x;
+	mPlayerData.posY = transform.position.y;
 	return mPlayerData;
 }
 

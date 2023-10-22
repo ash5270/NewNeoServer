@@ -1,8 +1,8 @@
 ﻿#pragma once
 #include <memory>
 #include <Windows.h>
-#include "GameObjectManager.h"
 #include "Object.h"
+#include "GameObjectManager.h"
 #include "Transform.h"
 
 namespace neo::object

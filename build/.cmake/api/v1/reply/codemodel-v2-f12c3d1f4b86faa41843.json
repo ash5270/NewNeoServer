@@ -1,0 +1,640 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						5
+					]
+				},
+				{
+					"build" : "NeoUtil",
+					"jsonFile" : "directory-NeoUtil-Debug-f06aaac1eb680bfc46f9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "NeoUtil",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "NeoNetwork",
+					"jsonFile" : "directory-NeoNetwork-Debug-9bfa502d055b46492de8.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "NeoNetwork",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "NeoGameBase",
+					"jsonFile" : "directory-NeoGameBase-Debug-abd1f68977e1d08ff11d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "NeoGameBase",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "NeoGameServer",
+					"jsonFile" : "directory-NeoGameServer-Debug-6a8ef45be458c952f718.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "NeoGameServer",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					],
+					"name" : "NEOServer",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-Debug-0851b3de530d8e98eeb4.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "NeoGameBase::@8b3b686db959393c1685",
+					"jsonFile" : "target-NeoGameBase-Debug-b02736fe8d5fad907a34.json",
+					"name" : "NeoGameBase",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "NeoGameServer::@1867b5527ec937189515",
+					"jsonFile" : "target-NeoGameServer-Debug-01ece1d56016ccb58872.json",
+					"name" : "NeoGameServer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "NeoNetwork::@e42aade04e201d0ccb3f",
+					"jsonFile" : "target-NeoNetwork-Debug-5eccdf3572118d2dc08c.json",
+					"name" : "NeoNetwork",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "NeoUtil::@3f514ff65e801fd46d4e",
+					"jsonFile" : "target-NeoUtil-Debug-82086f8e779803fa6837.json",
+					"name" : "NeoUtil",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-Debug-96b57524913679584ae0.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4
+					],
+					"jsonFile" : "directory-.-Release-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						5
+					]
+				},
+				{
+					"build" : "NeoUtil",
+					"jsonFile" : "directory-NeoUtil-Release-f06aaac1eb680bfc46f9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "NeoUtil",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "NeoNetwork",
+					"jsonFile" : "directory-NeoNetwork-Release-9bfa502d055b46492de8.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "NeoNetwork",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "NeoGameBase",
+					"jsonFile" : "directory-NeoGameBase-Release-abd1f68977e1d08ff11d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "NeoGameBase",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "NeoGameServer",
+					"jsonFile" : "directory-NeoGameServer-Release-6a8ef45be458c952f718.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "NeoGameServer",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					],
+					"name" : "NEOServer",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-Release-0851b3de530d8e98eeb4.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "NeoGameBase::@8b3b686db959393c1685",
+					"jsonFile" : "target-NeoGameBase-Release-d3c34616f02848f0619b.json",
+					"name" : "NeoGameBase",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "NeoGameServer::@1867b5527ec937189515",
+					"jsonFile" : "target-NeoGameServer-Release-eb559008bde1b60c279f.json",
+					"name" : "NeoGameServer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "NeoNetwork::@e42aade04e201d0ccb3f",
+					"jsonFile" : "target-NeoNetwork-Release-9b756844e638cbc96b9f.json",
+					"name" : "NeoNetwork",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "NeoUtil::@3f514ff65e801fd46d4e",
+					"jsonFile" : "target-NeoUtil-Release-2e487e3ccc5bed618e9a.json",
+					"name" : "NeoUtil",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-Release-96b57524913679584ae0.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4
+					],
+					"jsonFile" : "directory-.-MinSizeRel-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						5
+					]
+				},
+				{
+					"build" : "NeoUtil",
+					"jsonFile" : "directory-NeoUtil-MinSizeRel-f06aaac1eb680bfc46f9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "NeoUtil",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "NeoNetwork",
+					"jsonFile" : "directory-NeoNetwork-MinSizeRel-9bfa502d055b46492de8.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "NeoNetwork",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "NeoGameBase",
+					"jsonFile" : "directory-NeoGameBase-MinSizeRel-abd1f68977e1d08ff11d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "NeoGameBase",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "NeoGameServer",
+					"jsonFile" : "directory-NeoGameServer-MinSizeRel-6a8ef45be458c952f718.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "NeoGameServer",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "MinSizeRel",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					],
+					"name" : "NEOServer",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-MinSizeRel-0851b3de530d8e98eeb4.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "NeoGameBase::@8b3b686db959393c1685",
+					"jsonFile" : "target-NeoGameBase-MinSizeRel-dc5e3d6979780915faaf.json",
+					"name" : "NeoGameBase",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "NeoGameServer::@1867b5527ec937189515",
+					"jsonFile" : "target-NeoGameServer-MinSizeRel-869532688caa0bc688a2.json",
+					"name" : "NeoGameServer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "NeoNetwork::@e42aade04e201d0ccb3f",
+					"jsonFile" : "target-NeoNetwork-MinSizeRel-72396e949c22a750d2e3.json",
+					"name" : "NeoNetwork",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "NeoUtil::@3f514ff65e801fd46d4e",
+					"jsonFile" : "target-NeoUtil-MinSizeRel-84d2288ae56921bf37f9.json",
+					"name" : "NeoUtil",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-MinSizeRel-96b57524913679584ae0.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4
+					],
+					"jsonFile" : "directory-.-RelWithDebInfo-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						5
+					]
+				},
+				{
+					"build" : "NeoUtil",
+					"jsonFile" : "directory-NeoUtil-RelWithDebInfo-f06aaac1eb680bfc46f9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "NeoUtil",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "NeoNetwork",
+					"jsonFile" : "directory-NeoNetwork-RelWithDebInfo-9bfa502d055b46492de8.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "NeoNetwork",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "NeoGameBase",
+					"jsonFile" : "directory-NeoGameBase-RelWithDebInfo-abd1f68977e1d08ff11d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "NeoGameBase",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "NeoGameServer",
+					"jsonFile" : "directory-NeoGameServer-RelWithDebInfo-6a8ef45be458c952f718.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "NeoGameServer",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "RelWithDebInfo",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					],
+					"name" : "NEOServer",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-RelWithDebInfo-0851b3de530d8e98eeb4.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "NeoGameBase::@8b3b686db959393c1685",
+					"jsonFile" : "target-NeoGameBase-RelWithDebInfo-245358c655691cceec33.json",
+					"name" : "NeoGameBase",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "NeoGameServer::@1867b5527ec937189515",
+					"jsonFile" : "target-NeoGameServer-RelWithDebInfo-dc9221fed100f1602a34.json",
+					"name" : "NeoGameServer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "NeoNetwork::@e42aade04e201d0ccb3f",
+					"jsonFile" : "target-NeoNetwork-RelWithDebInfo-b27501afe254158be75f.json",
+					"name" : "NeoNetwork",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "NeoUtil::@3f514ff65e801fd46d4e",
+					"jsonFile" : "target-NeoUtil-RelWithDebInfo-b16806887e47db683238.json",
+					"name" : "NeoUtil",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-RelWithDebInfo-96b57524913679584ae0.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "F:/Code/NewNeoServer/build",
+		"source" : "F:/Code/NewNeoServer"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

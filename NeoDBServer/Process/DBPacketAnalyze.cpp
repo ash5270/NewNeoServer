@@ -1,7 +1,9 @@
 ﻿#include "DBPacketAnalyze.h"
 
+#include <optional>
+
 std::optional<std::unique_ptr<neo::packet::db::Package>> neo::process::DBPacketAnalyze::CreatePackage(const int& id, const int& size,
-	neo::system::InputMemoryStream& stream, std::shared_ptr<neo::network::IOCPSession> session)
+                                                                                                      neo::system::InputMemoryStream& stream, std::shared_ptr<neo::network::IOCPSession> session)
 {
 	auto packetOpt = CreatePacket(id, size, stream);
 	if (packetOpt.has_value())

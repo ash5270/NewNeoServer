@@ -74,7 +74,7 @@ std::optional<std::unique_ptr<neo::packet::game::Packet>> neo::process::GamePack
 	case packet::game::PacketID::PI_C_REQ_LEAVE_MAP:
 	{
 		std::unique_ptr<neo::packet::game::Packet> createPacket =
-			std::make_unique<packet::game::P_C_NOTIFY_LEAVE_MAP>();
+			std::make_unique<packet::game::P_C_REQ_LEAVE_MAP>();
 		createPacket->Deserialize(stream);
 		return std::move(createPacket);
 	}

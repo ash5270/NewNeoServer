@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{974DBAF5-ED44-3EC1-A9BD-178326185777}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>NeoGameServer</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\Code\NewNeoServer\build\NeoGameServer\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NeoGameServer.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NeoGameServer</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\Code\NewNeoServer\build\NeoGameServer\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NeoGameServer.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NeoGameServer</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\Code\NewNeoServer\build\NeoGameServer\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">NeoGameServer.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">NeoGameServer</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\Code\NewNeoServer\build\NeoGameServer\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">NeoGameServer.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">NeoGameServer</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>F:\Code\NewNeoServer\NeoGameServer;F:\Code\NewNeoServer\Redis;F:\Code\NewNeoServer\nlohmann;F:\Code\NewNeoServer\NeoNetwork;F:\Code\NewNeoServer\NeoUtil;F:\Code\NewNeoServer\NeoGameBase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\Code\NewNeoServer\NeoGameServer;F:\Code\NewNeoServer\Redis;F:\Code\NewNeoServer\nlohmann;F:\Code\NewNeoServer\NeoNetwork;F:\Code\NewNeoServer\NeoUtil;F:\Code\NewNeoServer\NeoGameBase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>F:\Code\NewNeoServer\NeoGameServer;F:\Code\NewNeoServer\Redis;F:\Code\NewNeoServer\nlohmann;F:\Code\NewNeoServer\NeoNetwork;F:\Code\NewNeoServer\NeoUtil;F:\Code\NewNeoServer\NeoGameBase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\NeoGameBase\Debug\NeoGameBase.lib;..\NeoNetwork\Debug\NeoNetwork.lib;..\NeoUtil\Debug\NeoUtil.lib;F:\Code\NewNeoServer\Redis\lib\hiredis.lib;F:\Code\NewNeoServer\Redis\lib\redis++.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>F:/Code/NewNeoServer/build/NeoGameServer/Debug/NeoGameServer.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/Code/NewNeoServer/build/NeoGameServer/Debug/NeoGameServer.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>F:\Code\NewNeoServer\NeoGameServer;F:\Code\NewNeoServer\Redis;F:\Code\NewNeoServer\nlohmann;F:\Code\NewNeoServer\NeoNetwork;F:\Code\NewNeoServer\NeoUtil;F:\Code\NewNeoServer\NeoGameBase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\Code\NewNeoServer\NeoGameServer;F:\Code\NewNeoServer\Redis;F:\Code\NewNeoServer\nlohmann;F:\Code\NewNeoServer\NeoNetwork;F:\Code\NewNeoServer\NeoUtil;F:\Code\NewNeoServer\NeoGameBase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>F:\Code\NewNeoServer\NeoGameServer;F:\Code\NewNeoServer\Redis;F:\Code\NewNeoServer\nlohmann;F:\Code\NewNeoServer\NeoNetwork;F:\Code\NewNeoServer\NeoUtil;F:\Code\NewNeoServer\NeoGameBase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\NeoGameBase\Release\NeoGameBase.lib;..\NeoNetwork\Release\NeoNetwork.lib;..\NeoUtil\Release\NeoUtil.lib;F:\Code\NewNeoServer\Redis\lib\hiredis.lib;F:\Code\NewNeoServer\Redis\lib\redis++.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>F:/Code/NewNeoServer/build/NeoGameServer/Release/NeoGameServer.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/Code/NewNeoServer/build/NeoGameServer/Release/NeoGameServer.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>F:\Code\NewNeoServer\NeoGameServer;F:\Code\NewNeoServer\Redis;F:\Code\NewNeoServer\nlohmann;F:\Code\NewNeoServer\NeoNetwork;F:\Code\NewNeoServer\NeoUtil;F:\Code\NewNeoServer\NeoGameBase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\Code\NewNeoServer\NeoGameServer;F:\Code\NewNeoServer\Redis;F:\Code\NewNeoServer\nlohmann;F:\Code\NewNeoServer\NeoNetwork;F:\Code\NewNeoServer\NeoUtil;F:\Code\NewNeoServer\NeoGameBase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>F:\Code\NewNeoServer\NeoGameServer;F:\Code\NewNeoServer\Redis;F:\Code\NewNeoServer\nlohmann;F:\Code\NewNeoServer\NeoNetwork;F:\Code\NewNeoServer\NeoUtil;F:\Code\NewNeoServer\NeoGameBase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\NeoGameBase\MinSizeRel\NeoGameBase.lib;..\NeoNetwork\MinSizeRel\NeoNetwork.lib;..\NeoUtil\MinSizeRel\NeoUtil.lib;F:\Code\NewNeoServer\Redis\lib\hiredis.lib;F:\Code\NewNeoServer\Redis\lib\redis++.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>F:/Code/NewNeoServer/build/NeoGameServer/MinSizeRel/NeoGameServer.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/Code/NewNeoServer/build/NeoGameServer/MinSizeRel/NeoGameServer.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>F:\Code\NewNeoServer\NeoGameServer;F:\Code\NewNeoServer\Redis;F:\Code\NewNeoServer\nlohmann;F:\Code\NewNeoServer\NeoNetwork;F:\Code\NewNeoServer\NeoUtil;F:\Code\NewNeoServer\NeoGameBase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\Code\NewNeoServer\NeoGameServer;F:\Code\NewNeoServer\Redis;F:\Code\NewNeoServer\nlohmann;F:\Code\NewNeoServer\NeoNetwork;F:\Code\NewNeoServer\NeoUtil;F:\Code\NewNeoServer\NeoGameBase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>F:\Code\NewNeoServer\NeoGameServer;F:\Code\NewNeoServer\Redis;F:\Code\NewNeoServer\nlohmann;F:\Code\NewNeoServer\NeoNetwork;F:\Code\NewNeoServer\NeoUtil;F:\Code\NewNeoServer\NeoGameBase;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\NeoGameBase\RelWithDebInfo\NeoGameBase.lib;..\NeoNetwork\RelWithDebInfo\NeoNetwork.lib;..\NeoUtil\RelWithDebInfo\NeoUtil.lib;F:\Code\NewNeoServer\Redis\lib\hiredis.lib;F:\Code\NewNeoServer\Redis\lib\redis++.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>F:/Code/NewNeoServer/build/NeoGameServer/RelWithDebInfo/NeoGameServer.lib</ImportLibrary>
+      <ProgramDataBaseFile>F:/Code/NewNeoServer/build/NeoGameServer/RelWithDebInfo/NeoGameServer.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\Code\NewNeoServer\NeoGameServer\CmakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule F:/Code/NewNeoServer/NeoGameServer/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SF:/Code/NewNeoServer -BF:/Code/NewNeoServer/build --check-stamp-file F:/Code/NewNeoServer/build/NeoGameServer/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\Code\NewNeoServer\build\NeoGameServer\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule F:/Code/NewNeoServer/NeoGameServer/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SF:/Code/NewNeoServer -BF:/Code/NewNeoServer/build --check-stamp-file F:/Code/NewNeoServer/build/NeoGameServer/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\Code\NewNeoServer\build\NeoGameServer\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule F:/Code/NewNeoServer/NeoGameServer/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SF:/Code/NewNeoServer -BF:/Code/NewNeoServer/build --check-stamp-file F:/Code/NewNeoServer/build/NeoGameServer/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\Code\NewNeoServer\build\NeoGameServer\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule F:/Code/NewNeoServer/NeoGameServer/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SF:/Code/NewNeoServer -BF:/Code/NewNeoServer/build --check-stamp-file F:/Code/NewNeoServer/build/NeoGameServer/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\Code\NewNeoServer\build\NeoGameServer\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="F:\Code\NewNeoServer\NeoGameServer\GameObject\MapObject.cpp" />
+    <ClInclude Include="F:\Code\NewNeoServer\NeoGameServer\GameObject\MapObject.h" />
+    <ClCompile Include="F:\Code\NewNeoServer\NeoGameServer\GameObject\NewClass1.cpp" />
+    <ClInclude Include="F:\Code\NewNeoServer\NeoGameServer\GameObject\NewClass1.h" />
+    <ClCompile Include="F:\Code\NewNeoServer\NeoGameServer\GameObject\PlayerObject.cpp" />
+    <ClInclude Include="F:\Code\NewNeoServer\NeoGameServer\GameObject\PlayerObject.h" />
+    <ClCompile Include="F:\Code\NewNeoServer\NeoGameServer\GameObject\PlayersManager.cpp" />
+    <ClInclude Include="F:\Code\NewNeoServer\NeoGameServer\GameObject\PlayersManager.h" />
+    <ClInclude Include="F:\Code\NewNeoServer\NeoGameServer\GameObject\Portal.h" />
+    <ClCompile Include="F:\Code\NewNeoServer\NeoGameServer\GameObject\WorldManager.cpp" />
+    <ClInclude Include="F:\Code\NewNeoServer\NeoGameServer\GameObject\WorldManager.h" />
+    <ClCompile Include="F:\Code\NewNeoServer\NeoGameServer\Gameserver\GameServer.cpp" />
+    <ClInclude Include="F:\Code\NewNeoServer\NeoGameServer\Gameserver\GameServer.h" />
+    <ClCompile Include="F:\Code\NewNeoServer\NeoGameServer\Gameserver\GameSession.cpp" />
+    <ClInclude Include="F:\Code\NewNeoServer\NeoGameServer\Gameserver\GameSession.h" />
+    <ClInclude Include="F:\Code\NewNeoServer\NeoGameServer\Gameserver\S2SClient.h" />
+    <ClCompile Include="F:\Code\NewNeoServer\NeoGameServer\Gameserver\S2SManager.cpp" />
+    <ClInclude Include="F:\Code\NewNeoServer\NeoGameServer\Gameserver\S2SManager.h" />
+    <ClCompile Include="F:\Code\NewNeoServer\NeoGameServer\Gameserver\S2SSession.cpp" />
+    <ClInclude Include="F:\Code\NewNeoServer\NeoGameServer\Gameserver\S2SSession.h" />
+    <ClInclude Include="F:\Code\NewNeoServer\NeoGameServer\Gameserver\WorldByProcess.h" />
+    <ClInclude Include="F:\Code\NewNeoServer\NeoGameServer\Packet\Packet.h" />
+    <ClInclude Include="F:\Code\NewNeoServer\NeoGameServer\Packet\PacketData.h" />
+    <ClInclude Include="F:\Code\NewNeoServer\NeoGameServer\Packet\PacketID.h" />
+    <ClCompile Include="F:\Code\NewNeoServer\NeoGameServer\Process\GamePacketAnalyze.cpp" />
+    <ClInclude Include="F:\Code\NewNeoServer\NeoGameServer\Process\GamePacketAnalyze.h" />
+    <ClCompile Include="F:\Code\NewNeoServer\NeoGameServer\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="F:\Code\NewNeoServer\build\ZERO_CHECK.vcxproj">
+      <Project>{7DF52D8B-DADF-3DE5-B7ED-D8479E5CBA13}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Code\NewNeoServer\build\NeoGameBase\NeoGameBase.vcxproj">
+      <Project>{EC6A49AA-EBC9-37A3-B635-A5FC60D7D286}</Project>
+      <Name>NeoGameBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\Code\NewNeoServer\build\NeoNetwork\NeoNetwork.vcxproj">
+      <Project>{33D05015-D099-31B1-9701-235CF31FA590}</Project>
+      <Name>NeoNetwork</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\Code\NewNeoServer\build\NeoUtil\NeoUtil.vcxproj">
+      <Project>{8EEC686A-4EC7-3E08-9459-E6A80BFC1AC1}</Project>
+      <Name>NeoUtil</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -66,8 +66,7 @@ void neo::object::MapObject::GetInMapPlayerDatas(vector<packet::game::PlayerData
 {
 	for (auto i = mPlayerList.begin(); i != mPlayerList.end(); i++)
 	{
-		auto playerData = (*i)->GetPlayerData();
-		vec.push_back(playerData);
+		vec.push_back((*i)->GetPlayerData());
 	}
 }
 

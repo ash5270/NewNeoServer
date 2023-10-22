@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="F:\Code\NewNeoServer\build\CMakeFiles\e05a861f81bd6ab863a0eed919a78403\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{D5597284-681D-316A-8B9B-F95CB574B8A2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

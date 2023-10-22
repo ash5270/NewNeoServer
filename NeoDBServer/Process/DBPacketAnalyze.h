@@ -2,6 +2,8 @@
 //
 //패킷의 id를 확인하여 packet을 만들어주는 곳 
 //
+#include <optional>
+
 #include "../Packet/PacketData.h"
 #include <network/IOCPSession.h>
 #include <system/InputMemoryStream.h>
@@ -20,7 +22,7 @@ namespace neo::process
 
 
 	private:
-		std::optional<std::unique_ptr<packet::db::Packet>> CreatePacket(
+		optional<std::unique_ptr<packet::db::Packet>> CreatePacket(
 			const int& id,
 			const int& size,
 			neo::system::InputMemoryStream& stream);

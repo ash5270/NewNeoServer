@@ -1,5 +1,5 @@
 ﻿#include "GameObject.h"
-
+#include "GameObjectManager.h"
 neo::object::GameObject::GameObject(const std::shared_ptr<GameObjectManager>& worldManager, const std::wstring& name):transform()
 {
 	this->Name = name;

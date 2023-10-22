@@ -487,7 +487,7 @@ public:
 	}
 };
 
-class P_C_NOTIFY_LEAVE_MAP
+class P_C_REQ_LEAVE_MAP
  : public Packet{
 public:
 	PacketID GetID(){
@@ -524,72 +524,28 @@ public:
 	}
 };
 
-class P_C_REQ_ENTER_MAP 
- : public Packet{
-public:
-	PacketID GetID(){
-		 return PacketID::PI_C_REQ_ENTER_MAP;
-	}
-	int32_t GetSize(){
-		size_t size =0;
-		size += sizeof(int32_t) + sizeof(int32_t) + sizeof(int32_t) + sizeof(uuid) ;
-		return static_cast<int32_t>(size);
-	}
-	
-	int32_t leaveMapId;
-	int32_t enterMapId;
-	int32_t characterId;
-	uint8_t uuid[16];
-	
-
-	void Serialize(OutputMemoryStream& buffer){
-	HeaderSerialize(buffer);
-		buffer.Write(leaveMapId);
-		buffer.Write(enterMapId);
-		buffer.Write(characterId);
-		buffer.Write(uuid,sizeof(uuid));
-
-	}
-
-	void Deserialize(InputMemoryStream& buffer){
-		int32_t size=0;
-		buffer.Read(leaveMapId);
-		buffer.Read(enterMapId);
-		buffer.Read(characterId);
-		buffer.Read(uuid,sizeof(uuid));
-
-	}
-};
-
 class P_S_RES_ENTER_MAP
  : public Packet{
 public:
 	PacketID GetID(){
-		 return PacketID::PI_C_RES_ENTER_MAP;
+		 return PacketID::PI_S_RES_ENTER_MAP;
 	}
 	int32_t GetSize(){
 		size_t size =0;
-		size+=sizeof(int32_t);
-		for(int i=0; i<playerDatas.size(); i++){
-			size+= playerDatas[i].GetSize();
-		}
-		size += sizeof(float) + sizeof(float) ;
+		size += sizeof(float) + sizeof(float) + sizeof(int32_t) ;
 		return static_cast<int32_t>(size);
 	}
 	
 	float posX;
 	float posY;
-	std::vector<PlayerData> playerDatas;
+	int32_t enterMapId;
 	
 
 	void Serialize(OutputMemoryStream& buffer){
 	HeaderSerialize(buffer);
 		buffer.Write(posX);
 		buffer.Write(posY);
-		buffer.Write(static_cast<int32_t>(playerDatas.size()));
-		for(int i=0; i<playerDatas.size(); i++){
-			playerDatas[i].Serialize(buffer);
-		}
+		buffer.Write(enterMapId);
 
 	}
 
@@ -597,13 +553,7 @@ public:
 		int32_t size=0;
 		buffer.Read(posX);
 		buffer.Read(posY);
-		size = 0;
-		buffer.Read(size);
-		for(int i=0; i<size; i++){
-			PlayerData data;
-			data.Deserialize(buffer);
-			playerDatas.push_back(data);
-		}
+		buffer.Read(enterMapId);
 
 	}
 };

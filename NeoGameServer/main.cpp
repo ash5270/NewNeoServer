@@ -1,6 +1,5 @@
-﻿#include "Gameserver/GameServer.h"
-#include <iostream>
-
+﻿#include <iostream>
+#include "Gameserver/GameServer.h"
 
 int main()
 {
@@ -13,5 +12,6 @@ int main()
 	server.StartServer();
 	server.UpdateServer();
 	server.StopServer();
+	
 	return 0;
 }

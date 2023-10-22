@@ -1,0 +1,5 @@
+file(GLOB_RECURSE SRC "*.cpp" "*.h")
+add_library(NeoNetwork STATIC ${SRC})
+
+target_include_directories(NeoNetwork PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
+

@@ -25,6 +25,5 @@ namespace neo::object
 		std::vector<std::shared_ptr<GameObject>> mGameObjects;
 		std::queue<int> mRemoveObjectIds;
 		std::wstring mName;
-
 	};
 }

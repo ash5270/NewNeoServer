@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="F:\Code\NewNeoServer\NeoNetwork\network\HttpClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Code\NewNeoServer\NeoNetwork\network\IOCPClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Code\NewNeoServer\NeoNetwork\network\IOCPData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Code\NewNeoServer\NeoNetwork\network\IOCPServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Code\NewNeoServer\NeoNetwork\network\IOCPSession.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Code\NewNeoServer\NeoNetwork\network\IOCPSocket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Code\NewNeoServer\NeoNetwork\network\TCPSocket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Code\NewNeoServer\NeoNetwork\network\Terminal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Code\NewNeoServer\NeoNetwork\packetprocess\LogicProcess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Code\NewNeoServer\NeoNetwork\packetprocess\Packet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Code\NewNeoServer\NeoNetwork\packetprocess\PacketProcess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Code\NewNeoServer\NeoNetwork\packetprocess\Task.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Code\NewNeoServer\NeoNetwork\packetprocess\TaskProcess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Code\NewNeoServer\NeoNetwork\system\InputMemoryStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Code\NewNeoServer\NeoNetwork\system\LogSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Code\NewNeoServer\NeoNetwork\system\MemoryPool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Code\NewNeoServer\NeoNetwork\system\OutputMemoryStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Code\NewNeoServer\NeoNetwork\system\Time.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\Singleton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\network\HttpClient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\network\HttpData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\network\HttpStateCode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\network\IOCPClient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\network\IOCPData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\network\IOCPServer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\network\IOCPSession.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\network\IOCPSocket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\network\SessionManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\network\SocketAddress.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\network\SocketCommon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\network\TCPSocket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\network\Terminal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\network\TerminalClient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\packetprocess\LogicProcess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\packetprocess\Packet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\packetprocess\PacketProcess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\packetprocess\Task.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\packetprocess\TaskProcess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\system\Buffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\system\ByteSwaper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\system\InputMemoryStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\system\LogData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\system\LogSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\system\MemoryPool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\system\MemoryStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\system\NeoLog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\system\OutputMemoryStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\system\RingBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\system\Span.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Code\NewNeoServer\NeoNetwork\system\Time.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\Code\NewNeoServer\NeoNetwork\CmakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{2075C048-D68E-3691-B8EA-75C473E0251F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{A2F241A0-FBF4-36A2-92C5-3B644D573C78}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -3,6 +3,7 @@
 #include <network/IOCPSession.h>
 #include <system/InputMemoryStream.h>
 #include <Singleton.h>
+#include<optional>
 namespace neo::process
 {
 	class GamePacketAnalyze : public Singleton<GamePacketAnalyze>

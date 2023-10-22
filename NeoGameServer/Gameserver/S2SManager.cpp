@@ -1,4 +1,5 @@
 ﻿#include "S2SManager.h"
+#include<optional>
 
 void neo::server::S2SManager::AddS2SClient(const std::wstring& clientName, HANDLE* iocpHandle, const std::string& ip,
 	const int& port)
