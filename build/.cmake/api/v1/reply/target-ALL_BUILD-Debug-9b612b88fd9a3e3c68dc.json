@@ -17,16 +17,16 @@
 	"dependencies" : 
 	[
 		{
-			"id" : "NeoGameBase::@8b3b686db959393c1685"
+			"id" : "NeoGameServer::@1867b5527ec937189515"
 		},
 		{
-			"id" : "NeoGameServer::@1867b5527ec937189515"
+			"id" : "NeoUtil::@3f514ff65e801fd46d4e"
 		},
 		{
 			"id" : "NeoNetwork::@e42aade04e201d0ccb3f"
 		},
 		{
-			"id" : "NeoUtil::@3f514ff65e801fd46d4e"
+			"id" : "NeoGameBase::@8b3b686db959393c1685"
 		},
 		{
 			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"

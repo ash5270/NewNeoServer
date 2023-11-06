@@ -23,13 +23,6 @@ std::optional<std::unique_ptr<neo::packet::game::Packet>> neo::process::GamePack
 {
 	switch (packet::game::PacketID packet = static_cast<packet::game::PacketID>(id); packet)
 	{
-		//case packet::game::PacketID::PI_C_NOTIFY_MAP_REGISTER:
-		//	{
-		//	std::unique_ptr<neo::packet::game::Packet> createPacket =
-		//		std::make_unique<packet::game::>();
-		//	createPacket->Deserialize(stream);
-		//	return std::move(createPacket);
-		//	}
 
 	case packet::game::PacketID::PI_C_REQ_WORLD_ENTER_THE_SERVER:
 	{
@@ -78,6 +71,31 @@ std::optional<std::unique_ptr<neo::packet::game::Packet>> neo::process::GamePack
 		createPacket->Deserialize(stream);
 		return std::move(createPacket);
 	}
+
+	case packet::game::PacketID::PI_C_NOTIFY_PING:
+	{
+		std::unique_ptr<neo::packet::game::Packet> createPacket =
+			std::make_unique<packet::game::P_C_NOTIFY_PING>();
+		createPacket->Deserialize(stream);
+		return std::move(createPacket);
+	}
+
+	case packet::game::PacketID::PI_C_NOTIFY_RTT:
+	{
+		std::unique_ptr<neo::packet::game::Packet> createPacket =
+			std::make_unique<packet::game::P_C_NOTIFY_RTT>();
+		createPacket->Deserialize(stream);
+		return std::move(createPacket);
+	}
+
+	case packet::game::PacketID::PI_C_REQ_PLAYER_ATTACK:
+	{
+		std::unique_ptr<neo::packet::game::Packet> createPacket =
+			std::make_unique<packet::game::P_C_REQ_PLAYER_ATTACK>();
+		createPacket->Deserialize(stream);
+		return std::move(createPacket);
+	}
+
 
 
 	/*case packet::game::PacketID::PI_C_REQ_ENTER_MAP:

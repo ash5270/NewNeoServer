@@ -558,6 +558,80 @@ public:
 	}
 };
 
+class P_C_REQ_PLAYER_ATTACK
+ : public Packet{
+public:
+	PacketID GetID(){
+		 return PacketID::PI_C_REQ_PLAYER_ATTACK;
+	}
+	int32_t GetSize(){
+		size_t size =0;
+		size += sizeof(int32_t) + sizeof(int32_t) + sizeof(int32_t) + sizeof(int32_t) + sizeof(uuid) ;
+		return static_cast<int32_t>(size);
+	}
+	
+	int32_t mapId;
+	int32_t characterId;
+	int32_t animaionCode;
+	int32_t attackType;
+	uint8_t uuid[16];
+	
+
+	void Serialize(OutputMemoryStream& buffer){
+	HeaderSerialize(buffer);
+		buffer.Write(mapId);
+		buffer.Write(characterId);
+		buffer.Write(animaionCode);
+		buffer.Write(attackType);
+		buffer.Write(uuid,sizeof(uuid));
+
+	}
+
+	void Deserialize(InputMemoryStream& buffer){
+		int32_t size=0;
+		buffer.Read(mapId);
+		buffer.Read(characterId);
+		buffer.Read(animaionCode);
+		buffer.Read(attackType);
+		buffer.Read(uuid,sizeof(uuid));
+
+	}
+};
+
+class P_S_RES_PLAYER_ATTACK
+ : public Packet{
+public:
+	PacketID GetID(){
+		 return PacketID::PI_S_RES_PLAYER_ATTACK;
+	}
+	int32_t GetSize(){
+		size_t size =0;
+		size += sizeof(int32_t) + sizeof(int32_t) + sizeof(int32_t) ;
+		return static_cast<int32_t>(size);
+	}
+	
+	int32_t characterId;
+	int32_t animaionCode;
+	int32_t attackType;
+	
+
+	void Serialize(OutputMemoryStream& buffer){
+	HeaderSerialize(buffer);
+		buffer.Write(characterId);
+		buffer.Write(animaionCode);
+		buffer.Write(attackType);
+
+	}
+
+	void Deserialize(InputMemoryStream& buffer){
+		int32_t size=0;
+		buffer.Read(characterId);
+		buffer.Read(animaionCode);
+		buffer.Read(attackType);
+
+	}
+};
+
 class P_S_REQ_DB_ENTER_INGAME_CHAR_DATA
  : public Packet{
 public:

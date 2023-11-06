@@ -38,6 +38,9 @@ namespace neo::object
 			std::unique_ptr<process::IPacket> packet);
 		void LeaveTheMap(std::shared_ptr<network::IOCPSession> session,
 			std::unique_ptr<process::IPacket> packet);
+		void PlayerAttackMap(std::shared_ptr<network::IOCPSession> session,
+			std::unique_ptr<process::IPacket> packet);
+
 	public:
 		std::optional<std::shared_ptr<object::PlayerObject>> GetPlayerData(const int& id);
 		void RemovePlayer(const int& id);

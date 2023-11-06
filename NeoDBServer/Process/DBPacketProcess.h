@@ -12,12 +12,18 @@ namespace neo::process
 		~DBPacketProcess();
 		
 	private:
-		void LoginUserProcess(std::shared_ptr<network::IOCPSession> session, std::unique_ptr<IPacket> packet);
 		void ChannelReqProcess(std::shared_ptr<network::IOCPSession> session, std::unique_ptr<IPacket> packet);
 		void CharacterReqProcess(std::shared_ptr<network::IOCPSession> session, std::unique_ptr<IPacket> packet);
 		void InGamePlayerDataReqProcess(std::shared_ptr<network::IOCPSession> session, std::unique_ptr<IPacket> packet);
 		void WorldMapReqProcess(std::shared_ptr<network::IOCPSession> session, std::unique_ptr<IPacket> packet);
+		//id 생성관련
+		void IDCheckProcess(std::shared_ptr<network::IOCPSession> session, std::unique_ptr<IPacket> packet);
+		void IDCreateProcess(std::shared_ptr<network::IOCPSession> session, std::unique_ptr<IPacket> packet);
+		//로그인 관려
+		void LoginUserProcess(std::shared_ptr<network::IOCPSession> session, std::unique_ptr<IPacket> packet);
+
 		sw::redis::Redis mRedisConnection;
+		std::string redisConfig;
 	};
 
 }

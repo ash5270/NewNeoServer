@@ -18,13 +18,13 @@ neo::object::WorldManager::WorldManager(const std::shared_ptr<object::GameObject
 	this->mRedisConnction = redis;
 	this->mSessionManager = sessionManager;
 	this->mLogicProcess = process;
-
 	AddPacketFunc(PI_C_REQ_WORLD_ENTER_THE_SERVER, EnterTheWorld);
 	AddPacketFunc(PI_S_RES_DB_ENTER_INGAME_CHAR_DATA, EnterTheWorldRespone);
 	AddPacketFunc(PI_S_CLOSE_WORLD, LeaveTherWorld);
 	AddPacketFunc(PI_C_UPDATE_CHAR_POSITION, CharacterPosUpdate);
 	AddPacketFunc(PI_S_RES_DB_WORLD_MAP_INFO, CreateWorldMap);
 	AddPacketFunc(PI_C_REQ_LEAVE_MAP, LeaveTheMap);
+	AddPacketFunc(PI_C_REQ_PLAYER_ATTACK, PlayerAttackMap);
 }
 
 neo::object::WorldManager::~WorldManager()
@@ -69,7 +69,10 @@ void neo::object::WorldManager::CharacterPosUpdate(std::shared_ptr<network::IOCP
 	const auto player = GetPlayerData(requestPacket->playerPosition.characterId);
 	if (!player.has_value())
 		return;
-	player.value()->SetPosition({ requestPacket->playerPosition.posX , requestPacket->playerPosition.posY });
+	
+	player.value()->SetPosition({ requestPacket->playerPosition.posX , 
+		requestPacket->playerPosition.posY },
+	requestPacket->playerPosition.animaionCode);
 }
 
 void neo::object::WorldManager::CreateWorldMap(std::shared_ptr<network::IOCPSession> session,
@@ -90,9 +93,6 @@ void neo::object::WorldManager::CreateWorldMap(std::shared_ptr<network::IOCPSess
 void neo::object::WorldManager::EnterTheMap(std::shared_ptr<network::IOCPSession> session,
 	std::unique_ptr<process::IPacket> packet)
 {
-	//NEW_PACKAGE(packet, P_C_REQ_ENTER_MAP, GameSession);
-	//mMapObjects[requestPacket->enterMapId]->AddPlayer(mPlayerDatas[requestPacket->characterId]);
-	//mPlayerDatas[requestPacket->characterId]->GetPlayerData().mapId = requestPacket->enterMapId;
 	LOG_PRINT(LOG_LEVEL::LOG_DEBUG, L"error packet \n");
 }
 
@@ -116,6 +116,21 @@ void neo::object::WorldManager::LeaveTheMap(std::shared_ptr<network::IOCPSession
 	requestSession->SendPacket(enterPacket);
 
 	mMapObjects[requestPacket->enterMapId]->AddPlayer(mPlayerDatas[requestPacket->characterId]);
+}
+
+void neo::object::WorldManager::PlayerAttackMap(std::shared_ptr<network::IOCPSession> session,
+	std::unique_ptr<process::IPacket> packet)
+{
+	NEW_PACKAGE(packet, P_C_REQ_PLAYER_ATTACK, GameSession);
+	LOG_PRINT(LOG_LEVEL::LOG_DEBUG, L"player attack ... player id : [%d], player attack type : [%d], map id : [%d], ani code : [%d]\n",
+		requestPacket->characterId, requestPacket->attackType, requestPacket->mapId, requestPacket->animaionCode);
+
+	packet::game::P_S_RES_PLAYER_ATTACK responeAttackPacket;
+	responeAttackPacket.animaionCode = requestPacket->animaionCode;
+	responeAttackPacket.attackType = requestPacket->attackType;
+	responeAttackPacket.characterId = requestPacket->characterId;
+	//공격한 캐릭터 제외하고 맵에 있는 모든 유저들한테 전송
+	mMapObjects[requestPacket->mapId]->BroadcastingPacket(responeAttackPacket, requestPacket->characterId);
 }
 
 std::optional<std::shared_ptr<neo::object::PlayerObject>> neo::object::WorldManager::GetPlayerData(const int& id)
@@ -169,6 +184,7 @@ void neo::object::WorldManager::EnterTheWorld(std::shared_ptr<network::IOCPSessi
 	}
 }
 
+
 void neo::object::WorldManager::EnterTheWorldRespone(std::shared_ptr<network::IOCPSession> session,
 	std::unique_ptr<process::IPacket> packet)
 {
@@ -187,7 +203,8 @@ void neo::object::WorldManager::EnterTheWorldRespone(std::shared_ptr<network::IO
 			requestPacket->characterWeaponId,
 			requestPacket->posX,
 			requestPacket->posY,
-			0, 0, 0,
+			requestPacket->animaionCode, 
+			0, 0,
 			requestPacket->Level,
 			requestPacket->Hp,
 			requestPacket->MaxHP
@@ -199,6 +216,7 @@ void neo::object::WorldManager::EnterTheWorldRespone(std::shared_ptr<network::IO
 			respone.playerData.characterImageId,
 			respone.playerData.posX,
 			respone.playerData.posY);
+			
 		gameSession.value().lock()->SendPacket(respone);
 
 		//플레이어 데이터 생성

@@ -30,17 +30,20 @@ namespace neo::game
 		void OnRecv(size_t transferSize) override;
 		void SetProcess(const std::shared_ptr<neo::process::LogicProcess>& logicProcess);
 		void SendPacket(neo::packet::game::Packet& packet);
-
+		//get session id
 		uint64_t GetSessionId()const;
-		//
+		//player data setting
 		void SetPlayerData(const int& charId);
+		//heart beat 
+		chrono::time_point<chrono::steady_clock> GetHeartBeat() const ;
+		void UpdateHeartBeat();
 	private:
 		size_t mRecvRemainSize = {};
 		std::shared_ptr<neo::process::LogicProcess> mProcess;
 
 		//플레이어 정보
 		int mCharId = {};
-
+		chrono::time_point<chrono::steady_clock> mHeartBeat ={};
 	};
 	typedef std::shared_ptr<network::SessionManager<game::GameSession>> GameSessionManagerPtr;
 }

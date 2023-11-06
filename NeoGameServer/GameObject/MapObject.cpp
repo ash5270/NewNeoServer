@@ -46,7 +46,7 @@ void neo::object::MapObject::Update(const double& deltaTime)
 				player->GetPlayerData().mapId,
 				player->transform.position.x,
 				player->transform.position.y,
-			0,0,0
+			0,0,player->GetPlayerData().animaionCode
 			});
 	}
 	BroadcastingPacket(positions);
@@ -76,6 +76,19 @@ void neo::object::MapObject::BroadcastingPacket(neo::packet::game::Packet& packe
 	{
 		auto session = (*i)->GetSession();
 		if (!session.expired())
+		{
+			session.lock()->SendPacket(packet);
+		}
+	}
+}
+
+void neo::object::MapObject::BroadcastingPacket(neo::packet::game::Packet& packet, int ExceptCharId)
+{
+	for (auto i = mPlayerList.begin(); i != mPlayerList.end(); i++)
+	{
+		auto session = (*i)->GetSession();
+		const int playerId = (*i)->GetPlayerData().characterId;
+		if (!session.expired()&&playerId!= ExceptCharId)
 		{
 			session.lock()->SendPacket(packet);
 		}

@@ -160,16 +160,16 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 3,
-			"id" : "NeoGameBase::@8b3b686db959393c1685"
+			"backtrace" : 8,
+			"id" : "NeoUtil::@3f514ff65e801fd46d4e"
 		},
 		{
 			"backtrace" : 8,
 			"id" : "NeoNetwork::@e42aade04e201d0ccb3f"
 		},
 		{
-			"backtrace" : 8,
-			"id" : "NeoUtil::@3f514ff65e801fd46d4e"
+			"backtrace" : 3,
+			"id" : "NeoGameBase::@8b3b686db959393c1685"
 		},
 		{
 			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"

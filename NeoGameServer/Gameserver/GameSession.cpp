@@ -5,7 +5,7 @@
 #include "../Process/GamePacketAnalyze.h"
 
 
-neo::game::GameSession::GameSession(const uint64_t& id):IOCPSession(id)
+neo::game::GameSession::GameSession(const uint64_t& id) :IOCPSession(id),mHeartBeat(std::chrono::steady_clock::now())
 {
 
 }
@@ -18,7 +18,6 @@ neo::game::GameSession::~GameSession()
 void neo::game::GameSession::OnClose()
 {
 	LOG_PRINT(LOG_LEVEL::LOG_ERROR, L"GameSession close...\n");
-
 	auto packet = std::make_unique<neo::packet::game::P_S_CLOSE_WORLD>();
 	packet->characterId = this->mCharId;
 	auto package = std::make_unique<neo::packet::game::Package>();
@@ -54,28 +53,36 @@ void neo::game::GameSession::OnRecv(size_t transferSize)
 	int32_t id = {};
 	int32_t size = {};
 	int32_t fixSize = {};
-	while (transferSize > 0 && transferSize>Packet::GetHeaderSize())
+	while (transferSize > 0 && transferSize > Packet::GetHeaderSize())
 	{
 		Packet::HeaderDeserialize(id, size, stream);
 		transferSize -= Packet::GetHeaderSize();
-		if (transferSize < size)
+		if (transferSize < static_cast<size_t>(size))
 		{
-			transferSize += Packet::GetHeaderSize();	
-			stream.SetOffset(stream.GetLength() - Packet::GetHeaderSize());
+			transferSize += Packet::GetHeaderSize();
+			stream.SetOffset(static_cast<size_t>(stream.GetLength()) - Packet::GetHeaderSize());
 			break;
 		}
-		else
+
+		if (auto package = process::GamePacketAnalyze::GetInstance().CreatePackage(id, size, stream, shared_from_this()))
 		{
-			auto package = process::GamePacketAnalyze::GetInstance().CreatePackage(id, size, stream, shared_from_this());
-			if (package)
+			const int packetId = static_cast<int>(packet::game::PacketID::PI_C_NOTIFY_PING);
+			if(package.value()->GetType() == packetId)
 			{
-				transferSize -= size;
+				auto packet = static_cast<packet::game::P_C_NOTIFY_PING*>(package.value()->packet.get());
+				packet::game::P_S_NOTIFY_PING pongPacket;
+				pongPacket.time = packet->time;
+				SendPacket(pongPacket);
+			}else
+			{
 				mProcess->PushPacket(std::move(package.value()));
+				
 			}
-			else
-				break;
+			transferSize -= size;
 		}
 	}
+
+	this->UpdateHeartBeat();
 
 	if (transferSize != 0)
 	{
@@ -84,7 +91,7 @@ void neo::game::GameSession::OnRecv(size_t transferSize)
 		mRecvBuffer->SetOffset(transferSize);
 		mRecvRemainSize = transferSize;
 	}
-	else {
+	else {    
 		mRecvBuffer->SetOffset(0);
 		mRecvRemainSize = 0;
 	}
@@ -127,3 +134,14 @@ void neo::game::GameSession::SetPlayerData(const int& charId)
 {
 	mCharId = charId;
 }
+
+chrono::time_point<chrono::steady_clock> neo::game::GameSession::GetHeartBeat() const
+{
+	return mHeartBeat;
+}
+
+void neo::game::GameSession::UpdateHeartBeat()
+{
+	mHeartBeat = std::chrono::steady_clock::now();
+}
+

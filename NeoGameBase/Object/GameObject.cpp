@@ -18,7 +18,6 @@ void neo::object::GameObject::LastUpdate(const double& deltaTime)
 
 }
 
-
 bool neo::object::GameObject::GetIsActive() const
 {
 	return mIsActive;

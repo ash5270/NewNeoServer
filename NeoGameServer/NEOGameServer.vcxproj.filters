@@ -29,6 +29,9 @@
     <ClCompile Include="GameObject\MapObject.cpp">
       <Filter>GameObject\MAP</Filter>
     </ClCompile>
+    <ClCompile Include="ServerUtil\HeartBeatSystem.cpp">
+      <Filter>ServerUtil</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GameServer">
@@ -48,6 +51,9 @@
     </Filter>
     <Filter Include="GameObject\MAP">
       <UniqueIdentifier>{861a010c-ad10-4c11-8c38-e3752b56e9aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ServerUtil">
+      <UniqueIdentifier>{b185d92f-2131-484e-9ed9-a68d6fd5d8ac}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +101,9 @@
     </ClInclude>
     <ClInclude Include="GameObject\Portal.h">
       <Filter>GameObject\MAP</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerUtil\HeartBeatSystem.h">
+      <Filter>ServerUtil</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

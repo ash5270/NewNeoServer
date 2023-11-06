@@ -197,3 +197,10 @@ bool neo::network::IOCPSession::IsConnect()
 	return mIsConnecting.load();
 }
 
+void neo::network::IOCPSession::CloseSession()
+{
+	mTCPSocket->CloseSocket();
+	mIsConnecting = false;
+	//OnClose();
+}
+

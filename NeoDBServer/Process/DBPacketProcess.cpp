@@ -7,14 +7,12 @@
 #include "../Packet/PacketID.h"
 
 #include "../DB/MYSQLConnectionPool.h"
-
 #define NEW_PACKAGE(package,packet_type,session_type)\
 const auto convertPackage = static_cast<neo::packet::db::Package*>(package.get());\
 const auto requestPacket = static_cast<neo::packet::db::packet_type*>(convertPackage->packet.get());\
 const auto requestSession = std::static_pointer_cast<neo::server::session_type>(session)\
 
-neo::process::DBPacketProcess::DBPacketProcess() :PacketProcess(THREAD_COUNT), mRedisConnection("tcp://192.168.123.104:6379")
-{
+neo::process::DBPacketProcess::DBPacketProcess() :PacketProcess(THREAD_COUNT),mRedisConnection("tcp://192.168.123.104:6379"){
 	mFuncTables.insert({ static_cast<int>(packet::db::PacketID::PI_S_REQ_DB_LOGIN),
 		std::bind(&DBPacketProcess::LoginUserProcess, this, std::placeholders::_1, std::placeholders::_2) });
 	mFuncTables.insert({ static_cast<int>(packet::db::PacketID::PI_S_REQ_DB_CHANNEL_INFO),
@@ -25,6 +23,11 @@ neo::process::DBPacketProcess::DBPacketProcess() :PacketProcess(THREAD_COUNT), m
 		std::bind(&DBPacketProcess::InGamePlayerDataReqProcess, this, std::placeholders::_1, std::placeholders::_2) });
 	mFuncTables.insert({ static_cast<int>(packet::db::PacketID::PI_S_REQ_DB_WORLD_MAP_INFO),
 		std::bind(&DBPacketProcess::WorldMapReqProcess, this, std::placeholders::_1, std::placeholders::_2) });
+
+	mFuncTables.insert({ static_cast<int>(packet::db::PacketID::PI_S_REQ_DB_ID_CREATE),
+		std::bind(&DBPacketProcess::IDCreateProcess, this, std::placeholders::_1, std::placeholders::_2) });
+	mFuncTables.insert({ static_cast<int>(packet::db::PacketID::PI_S_REQ_DB_ID_CHECK),
+		std::bind(&DBPacketProcess::IDCheckProcess, this, std::placeholders::_1, std::placeholders::_2) });
 
 }
 
@@ -245,5 +248,66 @@ void neo::process::DBPacketProcess::WorldMapReqProcess(std::shared_ptr<network::
 	requestSession->SendPacket(responePacket);
 	mysql_free_result(res);
 	db::MYSQLConnectionPool::GetInstance().FreeConnection(std::move(mysql));
+}
+
+void neo::process::DBPacketProcess::IDCheckProcess(std::shared_ptr<network::IOCPSession> session,
+	std::unique_ptr<IPacket> packet)
+{
+	NEW_PACKAGE(packet, P_S_REQ_DB_ID_CHECK, DBSession);
+	string idString = string().assign(requestPacket->id.begin(), requestPacket->id.end());
+	auto buffer = std::make_unique<char[]>(250);
+	auto len = sprintf_s(buffer.get(), 250,
+		"SELECT user_id FROM user_info where user_id = '%s'", idString.c_str());
+	auto mysql = db::MYSQLConnectionPool::GetInstance().GetConnection();
+	const int result = mysql_query(mysql.GetMYSQL(), buffer.get());
+	if (result)
+	{
+		LOG_PRINT(LOG_LEVEL::LOG_ERROR, L"MYSQL SELECT ERROR\n");
+	}
+
+	MYSQL_RES* res = mysql_store_result(mysql.GetMYSQL());
+	MYSQL_ROW row;
+
+	packet::db::P_S_RES_DB_ID_CREATE response;
+	response.sessionId = requestPacket->sessionId;
+	if(res->row_count != 0 )
+	{
+		response.msg = L"ID Found...";
+		response.statusCode = -1;
+	}
+	else
+	{
+		response.msg = L"ID Not Found...";
+		response.statusCode = 0;
+	}
+
+	LOG_PRINT(LOG_LEVEL::LOG_INFO, L"respone packet : %s, status code : %d\n", response.msg.c_str(), response.statusCode);
+	requestSession->SendPacket(response);
+}
+
+void neo::process::DBPacketProcess::IDCreateProcess(std::shared_ptr<network::IOCPSession> session,
+	std::unique_ptr<IPacket> packet)
+{
+	NEW_PACKAGE(packet, P_S_REQ_DB_ID_CREATE, DBSession);
+	string idString = string().assign(requestPacket->id.begin(), requestPacket->id.end());
+	string pwString = string().assign(requestPacket->password.begin(), requestPacket->password.end());
+	string nameString = string().assign(requestPacket->name.begin(), requestPacket->name.end());
+	string emailString = string().assign(requestPacket->email.begin(), requestPacket->email.end());
+
+	auto buffer = std::make_unique<char[]>(250);
+	auto len = sprintf_s(buffer.get(), 250,
+		"INSERT INTO user_info (user_name,user_id,user_email,user_password) VALUES ('%s','%s','%s','%s')", nameString.c_str(),idString.c_str(),emailString.c_str(), pwString.c_str());
+	auto mysql = db::MYSQLConnectionPool::GetInstance().GetConnection();
+	const int result = mysql_query(mysql.GetMYSQL(), buffer.get());
+	if (result)
+	{
+		LOG_PRINT(LOG_LEVEL::LOG_ERROR, L"MYSQL SELECT ERROR\n");
+	}
+
+	packet::db::P_S_RES_DB_ID_CREATE response;
+	response.sessionId = requestPacket->sessionId;
+	response.statusCode = 1;
+	response.msg = L"id create success...";
+	requestSession->SendPacket(response);
 }
 

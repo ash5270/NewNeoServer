@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{8d1c4822-3c85-449a-b15c-7b8dd77e0e43}</ProjectGuid>
+    <ProjectGuid>{cd7da452-d7d5-430b-90cc-ec28106a1bf8}</ProjectGuid>
     <RootNamespace>NeoDBServer</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -112,8 +112,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)\Redis;C:\Program Files\MySQL\MySQL Server 8.0\include;C:\Program Files\MySQL\MySQL Connector C++ 1.1.13\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,9 +128,10 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;_HAS_STD_BYTE=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)\Redis;C:\Program Files\MySQL\MySQL Server 8.0\include;C:\Program Files\MySQL\MySQL Connector C++ 1.1.13\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,31 +139,35 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Program Files\MySQL\MySQL Connector C++ 1.1.13\lib\opt;C:\Program Files\MySQL\MySQL Server 8.0\lib;$(SolutionDir)$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>mysqlcppconn.lib;libmysql.lib;NeoNetwork.lib;NeoUtil.lib;jsoncpp.lib;redis++.lib;hiredis.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>mysqlcppconn.lib;libmysql.lib;NeoNetwork.lib;NeoUtil.lib;redis++.lib;hiredis.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DBServer\DBServer.cpp" />
     <ClCompile Include="DBServer\DBSession.cpp" />
-    <ClCompile Include="DB\MYSQLConnectionPool.cpp" />
     <ClCompile Include="DB\MYSqlConnection.cpp" />
+    <ClCompile Include="DB\MYSQLConnectionPool.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Process\DBPacketProcess.cpp" />
     <ClCompile Include="Process\DBPacketAnalyze.cpp" />
+    <ClCompile Include="Process\DBPacketProcess.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DBServer\DBServer.h" />
     <ClInclude Include="DBServer\DBSession.h" />
+    <ClInclude Include="DB\ConnectionPool.h" />
     <ClInclude Include="DB\DBConfig.h" />
     <ClInclude Include="DB\IConnection.h" />
-    <ClInclude Include="DB\ConnectionPool.h" />
-    <ClInclude Include="DB\MYSQLConnectionPool.h" />
     <ClInclude Include="DB\MYSqlConnection.h" />
+    <ClInclude Include="DB\MYSQLConnectionPool.h" />
     <ClInclude Include="Packet\Packet.h" />
     <ClInclude Include="Packet\PacketData.h" />
     <ClInclude Include="Packet\PacketID.h" />
-    <ClInclude Include="Process\DBPacketProcess.h" />
     <ClInclude Include="Process\DBPacketAnalyze.h" />
+    <ClInclude Include="Process\DBPacketProcess.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Packet\PacketData.cs" />
+    <None Include="Packet\PacketID.cs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

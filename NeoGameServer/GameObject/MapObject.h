@@ -25,6 +25,7 @@ namespace  neo::object
 		void GetInMapPlayerDatas(__out vector<packet::game::PlayerData>& vec);
 		//맵에 있는 유저한테 브로드 캐스팅
 		void BroadcastingPacket(neo::packet::game::Packet& packet);
+		void BroadcastingPacket(neo::packet::game::Packet& packet, int ExceptCharId);
 		math::Vector3 GetSpawnPoint(const int32_t& leaveMapid);
 	private:
 		std::unordered_map<int32_t, std::shared_ptr<Portal>> mPortals;

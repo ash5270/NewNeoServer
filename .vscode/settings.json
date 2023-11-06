@@ -83,7 +83,8 @@
         "xstring": "cpp",
         "xtr1common": "cpp",
         "xtree": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "fstream": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled",
     "dotnet.defaultSolution": "disable"

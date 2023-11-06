@@ -539,6 +539,78 @@ public override Int32 GetSize(){
 	}
 };
 
+public class P_C_REQ_PLAYER_ATTACK
+ : Packet{
+	public override PacketID GetID(){
+		return PacketID.PI_C_REQ_PLAYER_ATTACK;
+	}
+	
+public override Int32 GetSize(){
+		Int32 size = 0;
+		size += sizeof(Int32) + sizeof(Int32) + sizeof(Int32) + sizeof(Int32) + uuid.Length ;
+		return size;
+	}
+	public Int32 mapId;
+	public Int32 characterId;
+	public Int32 animaionCode;
+	public Int32 attackType;
+	public byte[] uuid =new byte[16];
+	
+
+	public override void Serialize(OutputMemoryStream buffer){
+		HeaderSerialize(buffer);
+		buffer.Write(mapId);
+		buffer.Write(characterId);
+		buffer.Write(animaionCode);
+		buffer.Write(attackType);
+		buffer.Write(uuid, uuid.Length);
+
+	}
+
+	public override void Deserialize(InputMemoryStream buffer){
+		Int32 size=0;
+		buffer.Read(out mapId);
+		buffer.Read(out characterId);
+		buffer.Read(out animaionCode);
+		buffer.Read(out attackType);
+		buffer.Read(ref uuid, uuid.Length);
+
+	}
+};
+
+public class P_S_RES_PLAYER_ATTACK
+ : Packet{
+	public override PacketID GetID(){
+		return PacketID.PI_S_RES_PLAYER_ATTACK;
+	}
+	
+public override Int32 GetSize(){
+		Int32 size = 0;
+		size += sizeof(Int32) + sizeof(Int32) + sizeof(Int32) ;
+		return size;
+	}
+	public Int32 characterId;
+	public Int32 animaionCode;
+	public Int32 attackType;
+	
+
+	public override void Serialize(OutputMemoryStream buffer){
+		HeaderSerialize(buffer);
+		buffer.Write(characterId);
+		buffer.Write(animaionCode);
+		buffer.Write(attackType);
+
+	}
+
+	public override void Deserialize(InputMemoryStream buffer){
+		Int32 size=0;
+		buffer.Read(out characterId);
+		buffer.Read(out animaionCode);
+		buffer.Read(out attackType);
+
+	}
+};
+
 public class P_S_REQ_DB_ENTER_INGAME_CHAR_DATA
  : Packet{
 	public override PacketID GetID(){

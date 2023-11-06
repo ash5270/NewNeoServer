@@ -60,6 +60,21 @@ std::optional<std::unique_ptr<neo::packet::db::Packet>> neo::process::DBPacketAn
 		return std::move(createPacket);
 	}
 
+	case packet::db::PacketID::PI_S_REQ_DB_ID_CHECK:
+		{
+		std::unique_ptr<neo::packet::db::Packet> createPacket =
+			std::make_unique<packet::db::P_S_REQ_DB_ID_CHECK>();
+		createPacket->Deserialize(stream);
+		return std::move(createPacket);
+		}
+
+	case packet::db::PacketID::PI_S_REQ_DB_ID_CREATE:
+	{
+		std::unique_ptr<neo::packet::db::Packet> createPacket =
+			std::make_unique<packet::db::P_S_REQ_DB_ID_CREATE>();
+		createPacket->Deserialize(stream);
+		return std::move(createPacket);
+	}
 
 	default:
 		LOG_PRINT(LOG_LEVEL::LOG_ERROR, L"not found packet id = %d\n", id);

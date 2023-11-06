@@ -4,6 +4,7 @@
 #include <memory>
 #include <sw/redis++/redis++.h>
 #include "../GameObject/WorldManager.h"
+#include "../ServerUtil/HeartBeatSystem.h"
 namespace neo::game
 {
 	class WorldByProcess
@@ -13,35 +14,29 @@ namespace neo::game
 		~WorldByProcess();
 	public:
 		void Start();
-
-
 	public:
 		//패킷 업데이트 
 		std::shared_ptr<process::LogicProcess> LogicProcess;
 		std::shared_ptr<object::GameObjectManager> CurWorld;
-		//패킷 처리 관련
+		//re
 		std::shared_ptr<sw::redis::Redis> mRedis;
-		//게임 오브젝트를 생성해서 넣어야할 경우가 문제가 생김
-		//std::shared_ptr<object::PlayersManager> playersManager;
-
-
-
 
 	private:
 		GameSessionManagerPtr mSessionManager;
 		std::shared_ptr<object::WorldManager> mWorldManager;
+		std::shared_ptr<util::HeartBeatSystem> mHeartBeat;
+		const std::string redisConfig = "tcp://192.168.123.104:6379";
 	};
 
 	inline WorldByProcess::WorldByProcess(const GameSessionManagerPtr& sessionManager) : mSessionManager(sessionManager)
 	{
-		//
+		//init
 		CurWorld = std::make_shared<neo::object::GameObjectManager>(L"GameObjectManager");
-		mRedis = std::make_shared<sw::redis::Redis>("tcp://192.168.123.104:6379");
+		mRedis = std::make_shared<sw::redis::Redis>(redisConfig);
 		auto func = std::bind(&object::GameObjectManager::Update, CurWorld.get(), std::placeholders::_1);
 		auto startFunction = std::bind(&object::GameObjectManager::Start, CurWorld.get());
 		LogicProcess = std::make_shared<neo::process::LogicProcess>(25, func,startFunction);
 
-		//playersManager = std::make_shared<object::PlayersManager>(CurWorld,LogicProcess,mRedis,sessionManager);
 		mWorldManager = std::make_shared<object::WorldManager>(
 			CurWorld,
 			LogicProcess,
@@ -49,7 +44,9 @@ namespace neo::game
 			mSessionManager
 		);
 
-		//CurWorld->AddGameObject(playersManager);
+		mHeartBeat = std::make_shared<util::HeartBeatSystem>(sessionManager);
+		//object add
+		CurWorld->AddGameObject(mHeartBeat);
 		CurWorld->AddGameObject(mWorldManager);
 	}
 

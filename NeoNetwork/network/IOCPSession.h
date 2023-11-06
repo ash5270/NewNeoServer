@@ -41,6 +41,7 @@ namespace neo::network {
 		void SendTest(const size_t& byteSize);
 		//연결되어있는지 확인
 	    bool IsConnect();
+		void CloseSession();
 		
 	protected:
 		std::queue<WSABUF> paddingBufs;

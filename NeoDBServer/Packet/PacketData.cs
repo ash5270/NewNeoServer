@@ -2,6 +2,196 @@ using System;
 using System.Collections.Generic;
 using neo.system;
 namespace neo::packet::db {
+public class P_S_REQ_DB_ENTER_INGAME_CHAR_DATA
+ : Packet{
+	public override PacketID GetID(){
+		return PacketID.PI_S_REQ_DB_ENTER_INGAME_CHAR_DATA;
+	}
+	
+public override Int32 GetSize(){
+		Int32 size = 0;
+		size += sizeof(Int32) + sizeof(Int32) + sizeof(Int32) ;
+		return size;
+	}
+	public Int32 sessionId;
+	public Int32 characterId;
+	public Int32 channelId;
+	
+
+	public override void Serialize(OutputMemoryStream buffer){
+		HeaderSerialize(buffer);
+		buffer.Write(sessionId);
+		buffer.Write(characterId);
+		buffer.Write(channelId);
+
+	}
+
+	public override void Deserialize(InputMemoryStream buffer){
+		Int32 size=0;
+		buffer.Read(out sessionId);
+		buffer.Read(out characterId);
+		buffer.Read(out channelId);
+
+	}
+};
+
+public class P_S_RES_DB_ENTER_INGAME_CHAR_DATA
+ : Packet{
+	public override PacketID GetID(){
+		return PacketID.PI_S_RES_DB_ENTER_INGAME_CHAR_DATA;
+	}
+	
+public override Int32 GetSize(){
+		Int32 size = 0;
+		size += sizeof(Int32) + sizeof(Int32) + sizeof(Int16) + (sizeof(Int16) * characterName.Length) + sizeof(Int32) + sizeof(Int32) + sizeof(Int32) + sizeof(float) + sizeof(float) + sizeof(Int32) + sizeof(Int32) + sizeof(Int32) + sizeof(Int32) ;
+		return size;
+	}
+	public Int32 sessionId;
+	public Int32 mapId;
+	public string characterName;
+	public Int32 characterId;
+	public Int32 characterImageId;
+	public Int32 characterWeaponId;
+	public float posX;
+	public float posY;
+	public Int32 animaionCode;
+	public Int32 Level;
+	public Int32 Hp;
+	public Int32 MaxHP;
+	
+
+	public override void Serialize(OutputMemoryStream buffer){
+		HeaderSerialize(buffer);
+		buffer.Write(sessionId);
+		buffer.Write(mapId);
+		buffer.Write(characterName);
+		buffer.Write(characterId);
+		buffer.Write(characterImageId);
+		buffer.Write(characterWeaponId);
+		buffer.Write(posX);
+		buffer.Write(posY);
+		buffer.Write(animaionCode);
+		buffer.Write(Level);
+		buffer.Write(Hp);
+		buffer.Write(MaxHP);
+
+	}
+
+	public override void Deserialize(InputMemoryStream buffer){
+		Int32 size=0;
+		buffer.Read(out sessionId);
+		buffer.Read(out mapId);
+		buffer.Read(out characterName);
+		buffer.Read(out characterId);
+		buffer.Read(out characterImageId);
+		buffer.Read(out characterWeaponId);
+		buffer.Read(out posX);
+		buffer.Read(out posY);
+		buffer.Read(out animaionCode);
+		buffer.Read(out Level);
+		buffer.Read(out Hp);
+		buffer.Read(out MaxHP);
+
+	}
+};
+
+public class WorldMapData
+  {
+	public Int32 GetSize(){
+		Int32 size = 0;
+		size += sizeof(Int32) + sizeof(Int16) + (sizeof(Int16) * name.Length) + sizeof(Int32) + sizeof(Int32) ;
+		return size;
+	}
+	public Int32 id;
+	public string name;
+	public Int32 monsterCode;
+	public Int32 monsterCount;
+	
+
+	public void Serialize(OutputMemoryStream buffer){
+		buffer.Write(id);
+		buffer.Write(name);
+		buffer.Write(monsterCode);
+		buffer.Write(monsterCount);
+
+	}
+	public void Deserialize(InputMemoryStream buffer){
+		Int32 size=0;
+		buffer.Read(out id);
+		buffer.Read(out name);
+		buffer.Read(out monsterCode);
+		buffer.Read(out monsterCount);
+
+	}
+};
+
+public class P_S_REQ_DB_WORLD_MAP_INFO
+ : Packet{
+	public override PacketID GetID(){
+		return PacketID.PI_S_REQ_DB_WORLD_MAP_INFO;
+	}
+	
+public override Int32 GetSize(){
+		Int32 size = 0;
+		size += sizeof(Int32) ;
+		return size;
+	}
+	public Int32 sessionId;
+	
+
+	public override void Serialize(OutputMemoryStream buffer){
+		HeaderSerialize(buffer);
+		buffer.Write(sessionId);
+
+	}
+
+	public override void Deserialize(InputMemoryStream buffer){
+		Int32 size=0;
+		buffer.Read(out sessionId);
+
+	}
+};
+
+public class P_S_RES_DB_WORLD_MAP_INFO
+ : Packet{
+	public override PacketID GetID(){
+		return PacketID.PI_S_RES_DB_WORLD_MAP_INFO;
+	}
+	
+public override Int32 GetSize(){
+		Int32 size = 0;
+		size+=sizeof(Int32);
+		for(int i=0; i<worldMapDatas.Count; i++){
+			size+= worldMapDatas[i].GetSize();
+		}
+		
+		return size;
+	}
+	public List<WorldMapData> worldMapDatas = new List<WorldMapData>();
+	
+
+	public override void Serialize(OutputMemoryStream buffer){
+		HeaderSerialize(buffer);
+		buffer.Write((int)(worldMapDatas.Count));
+		for(int i=0; i<worldMapDatas.Count; i++){
+			worldMapDatas[i].Serialize(buffer);
+		}
+
+	}
+
+	public override void Deserialize(InputMemoryStream buffer){
+		Int32 size=0;
+		size = 0;
+		buffer.Read(out size);
+		for(int i=0; i<size; i++){
+			WorldMapData data = new WorldMapData();
+			data.Deserialize(buffer);
+			worldMapDatas.Add(data);
+		}
+
+	}
+};
+
 public class P_S_REQ_DB_LOGIN
  : Packet{
 	public override PacketID GetID(){
@@ -451,192 +641,104 @@ public override Int32 GetSize(){
 	}
 };
 
-public class P_S_REQ_DB_ENTER_INGAME_CHAR_DATA
+public class P_S_REQ_DB_ID_CHECK
  : Packet{
 	public override PacketID GetID(){
-		return PacketID.PI_S_REQ_DB_ENTER_INGAME_CHAR_DATA;
+		return PacketID.PI_S_REQ_DB_ID_CHECK;
 	}
 	
 public override Int32 GetSize(){
 		Int32 size = 0;
-		size += sizeof(Int32) + sizeof(Int32) + sizeof(Int32) ;
+		size += sizeof(Int32) + sizeof(Int16) + (sizeof(Int16) * id.Length) ;
 		return size;
 	}
 	public Int32 sessionId;
-	public Int32 characterId;
-	public Int32 channelId;
+	public string id;
 	
 
 	public override void Serialize(OutputMemoryStream buffer){
 		HeaderSerialize(buffer);
 		buffer.Write(sessionId);
-		buffer.Write(characterId);
-		buffer.Write(channelId);
-
-	}
-
-	public override void Deserialize(InputMemoryStream buffer){
-		Int32 size=0;
-		buffer.Read(out sessionId);
-		buffer.Read(out characterId);
-		buffer.Read(out channelId);
-
-	}
-};
-
-public class P_S_RES_DB_ENTER_INGAME_CHAR_DATA
- : Packet{
-	public override PacketID GetID(){
-		return PacketID.PI_S_RES_DB_ENTER_INGAME_CHAR_DATA;
-	}
-	
-public override Int32 GetSize(){
-		Int32 size = 0;
-		size += sizeof(Int32) + sizeof(Int32) + sizeof(Int16) + (sizeof(Int16) * characterName.Length) + sizeof(Int32) + sizeof(Int32) + sizeof(Int32) + sizeof(float) + sizeof(float) + sizeof(Int32) + sizeof(Int32) + sizeof(Int32) + sizeof(Int32) ;
-		return size;
-	}
-	public Int32 sessionId;
-	public Int32 mapId;
-	public string characterName;
-	public Int32 characterId;
-	public Int32 characterImageId;
-	public Int32 characterWeaponId;
-	public float posX;
-	public float posY;
-	public Int32 animaionCode;
-	public Int32 Level;
-	public Int32 Hp;
-	public Int32 MaxHP;
-	
-
-	public override void Serialize(OutputMemoryStream buffer){
-		HeaderSerialize(buffer);
-		buffer.Write(sessionId);
-		buffer.Write(mapId);
-		buffer.Write(characterName);
-		buffer.Write(characterId);
-		buffer.Write(characterImageId);
-		buffer.Write(characterWeaponId);
-		buffer.Write(posX);
-		buffer.Write(posY);
-		buffer.Write(animaionCode);
-		buffer.Write(Level);
-		buffer.Write(Hp);
-		buffer.Write(MaxHP);
-
-	}
-
-	public override void Deserialize(InputMemoryStream buffer){
-		Int32 size=0;
-		buffer.Read(out sessionId);
-		buffer.Read(out mapId);
-		buffer.Read(out characterName);
-		buffer.Read(out characterId);
-		buffer.Read(out characterImageId);
-		buffer.Read(out characterWeaponId);
-		buffer.Read(out posX);
-		buffer.Read(out posY);
-		buffer.Read(out animaionCode);
-		buffer.Read(out Level);
-		buffer.Read(out Hp);
-		buffer.Read(out MaxHP);
-
-	}
-};
-
-public class WorldMapData
-  {
-	public Int32 GetSize(){
-		Int32 size = 0;
-		size += sizeof(Int32) + sizeof(Int16) + (sizeof(Int16) * name.Length) + sizeof(Int32) + sizeof(Int32) ;
-		return size;
-	}
-	public Int32 id;
-	public string name;
-	public Int32 monsterCode;
-	public Int32 monsterCount;
-	
-
-	public void Serialize(OutputMemoryStream buffer){
 		buffer.Write(id);
-		buffer.Write(name);
-		buffer.Write(monsterCode);
-		buffer.Write(monsterCount);
-
-	}
-	public void Deserialize(InputMemoryStream buffer){
-		Int32 size=0;
-		buffer.Read(out id);
-		buffer.Read(out name);
-		buffer.Read(out monsterCode);
-		buffer.Read(out monsterCount);
-
-	}
-};
-
-public class P_S_REQ_DB_WORLD_MAP_INFO
- : Packet{
-	public override PacketID GetID(){
-		return PacketID.PI_S_REQ_DB_WORLD_MAP_INFO;
-	}
-	
-public override Int32 GetSize(){
-		Int32 size = 0;
-		size += sizeof(Int32) ;
-		return size;
-	}
-	public Int32 sessionId;
-	
-
-	public override void Serialize(OutputMemoryStream buffer){
-		HeaderSerialize(buffer);
-		buffer.Write(sessionId);
 
 	}
 
 	public override void Deserialize(InputMemoryStream buffer){
 		Int32 size=0;
 		buffer.Read(out sessionId);
+		buffer.Read(out id);
 
 	}
 };
 
-public class P_S_RES_DB_WORLD_MAP_INFO
+public class P_S_REQ_DB_ID_CREATE
  : Packet{
 	public override PacketID GetID(){
-		return PacketID.PI_S_RES_DB_WORLD_MAP_INFO;
+		return PacketID.PI_S_REQ_DB_ID_CREATE;
 	}
 	
 public override Int32 GetSize(){
 		Int32 size = 0;
-		size+=sizeof(Int32);
-		for(int i=0; i<worldMapDatas.Count; i++){
-			size+= worldMapDatas[i].GetSize();
-		}
-		
+		size += sizeof(Int32) + sizeof(Int16) + (sizeof(Int16) * id.Length) + sizeof(Int16) + (sizeof(Int16) * password.Length) + sizeof(Int16) + (sizeof(Int16) * email.Length) + sizeof(Int16) + (sizeof(Int16) * name.Length) ;
 		return size;
 	}
-	public List<WorldMapData> worldMapDatas = new List<WorldMapData>();
+	public Int32 sessionId;
+	public string id;
+	public string password;
+	public string email;
+	public string name;
 	
 
 	public override void Serialize(OutputMemoryStream buffer){
 		HeaderSerialize(buffer);
-		buffer.Write((int)(worldMapDatas.Count));
-		for(int i=0; i<worldMapDatas.Count; i++){
-			worldMapDatas[i].Serialize(buffer);
-		}
+		buffer.Write(sessionId);
+		buffer.Write(id);
+		buffer.Write(password);
+		buffer.Write(email);
+		buffer.Write(name);
 
 	}
 
 	public override void Deserialize(InputMemoryStream buffer){
 		Int32 size=0;
-		size = 0;
-		buffer.Read(out size);
-		for(int i=0; i<size; i++){
-			WorldMapData data = new WorldMapData();
-			data.Deserialize(buffer);
-			worldMapDatas.Add(data);
-		}
+		buffer.Read(out sessionId);
+		buffer.Read(out id);
+		buffer.Read(out password);
+		buffer.Read(out email);
+		buffer.Read(out name);
+
+	}
+};
+
+public class P_S_RES_DB_ID_CREATE
+ : Packet{
+	public override PacketID GetID(){
+		return PacketID.PI_S_RES_DB_ID_CREATE;
+	}
+	
+public override Int32 GetSize(){
+		Int32 size = 0;
+		size += sizeof(Int32) + sizeof(Int32) + sizeof(Int16) + (sizeof(Int16) * msg.Length) ;
+		return size;
+	}
+	public Int32 sessionId;
+	public Int32 statusCode;
+	public string msg;
+	
+
+	public override void Serialize(OutputMemoryStream buffer){
+		HeaderSerialize(buffer);
+		buffer.Write(sessionId);
+		buffer.Write(statusCode);
+		buffer.Write(msg);
+
+	}
+
+	public override void Deserialize(InputMemoryStream buffer){
+		Int32 size=0;
+		buffer.Read(out sessionId);
+		buffer.Read(out statusCode);
+		buffer.Read(out msg);
 
 	}
 };

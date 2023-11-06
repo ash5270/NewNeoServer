@@ -71,6 +71,29 @@ std::optional<std::unique_ptr<neo::packet::login::Packet>> neo::process::PacketA
 		return std::move(createPacket);
 	}
 
+	case packet::login::PacketID::PI_C_REQ_CREATE_ID:
+	{
+		auto createPacket = std::make_unique<neo::packet::login::P_C_REQ_CREATE_ID>();
+		createPacket->Deserialize(stream);
+		return std::move(createPacket);
+	}
+
+	case packet::login::PacketID::PI_C_REQ_CREATE_ID_CHECK:
+	{
+		auto createPacket = std::make_unique<neo::packet::login::P_C_REQ_CREATE_ID_CHECK>();
+		createPacket->Deserialize(stream);
+		return std::move(createPacket);
+	}
+
+	case packet::login::PacketID::PI_S_RES_DB_ID_CREATE:
+	{
+		auto createPacket = std::make_unique<neo::packet::login::P_S_RES_DB_ID_CREATE>();
+		createPacket->Deserialize(stream);
+		return std::move(createPacket);
+	}
+
+
+
 	default:
 		LOG_PRINT(LOG_LEVEL::LOG_ERROR, L"not found packet id = %d\n", id);
 		return std::nullopt;

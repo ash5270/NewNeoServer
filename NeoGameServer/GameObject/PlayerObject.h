@@ -13,13 +13,12 @@ namespace neo::object
 		PlayerObject(const std::shared_ptr<GameObjectManager>& worldManager, const std::weak_ptr<neo::game::GameSession> session);
 		~PlayerObject() override;
 	public:
+		void SetPosition(math::Vector2 pos,const int& animationCode);
 		void SetPosition(math::Vector2 pos);
 		void SetPlayerData(const packet::game::PlayerData& data);
 
 		packet::game::PlayerData& GetPlayerData();
 		std::weak_ptr<neo::game::GameSession> GetSession();
-		/*void Start() override;
-		void Update(const double& deltaTime) override;*/
 		  
 	private:
 		packet::game::PlayerData mPlayerData;

@@ -1,8 +1,8 @@
 ﻿#pragma once
-#include <memory>
-#include <Windows.h>
-#include "Object.h"
 #include "GameObjectManager.h"
+
+#include <memory>
+#include "Object.h"
 #include "Transform.h"
 
 namespace neo::object
@@ -19,7 +19,7 @@ namespace neo::object
 		virtual void Update(const double& deltaTime);
 		virtual void LastUpdate(const double& deltaTime);
 
-		const ::UUID& GetObjectUUID() const;
+		//const ::UUID& GetObjectUUID() const;
 		bool GetIsActive() const;
 		void SetIsActive(const bool& active);
 	protected:
